@@ -12,6 +12,7 @@ namespace Tfe.NetClient
                 .AddJsonFile("appsettings.json", optional: true)
                 .AddJsonFile("appsettings.Development.json", optional: true)
                 .AddEnvironmentVariables()
+                .AddUserSecrets<IntegrationTestFixture>()
                 .Build();
         }
     }
