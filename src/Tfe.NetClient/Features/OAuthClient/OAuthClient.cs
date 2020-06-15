@@ -25,9 +25,9 @@ namespace Tfe.NetClient.OAuthClients
             return await PostAsync<OAuthClientsRequest, OAuthClientResponse>($"organizations/{organizationName}/oauth-clients", request).ConfigureAwait(false);
         }
 
-        public async Task<OAuthClientResponse> UpdateAsync(OAuthClientsRequest request)
+        public async Task<OAuthClientResponse> UpdateAsync(string oauthClientId, OAuthClientsRequest request)
         {
-            return await PatchAsync<OAuthClientsRequest, OAuthClientResponse>($"organizations", request).ConfigureAwait(false);
+            return await PatchAsync<OAuthClientsRequest, OAuthClientResponse>($"/oauth-clients/{oauthClientId}", request).ConfigureAwait(false);
         }
 
         public async Task DestroyAsync(string oauthClientId)
