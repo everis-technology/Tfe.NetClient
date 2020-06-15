@@ -5,7 +5,9 @@ namespace Tfe.NetClient
     using Tfe.NetClient.WorkspaceVariables;
     using Microsoft.Extensions.Configuration;
     using System.Threading.Tasks;
+    using Xunit.Extensions.Ordering;
 
+    [Order(3)]
     public class WorkspaceVariable : IClassFixture<IntegrationTestFixture>
     {
         private readonly IConfiguration configuration;
@@ -15,7 +17,7 @@ namespace Tfe.NetClient
             this.configuration = fixture.Configuration;
         }
 
-        [Fact]
+        [Fact, Order(1)]
         public async Task CreateWorkspaceVariables()
         {
             var organizationName = configuration["organizationName"];
@@ -45,7 +47,7 @@ namespace Tfe.NetClient
             request.Data.Attributes.Hcl = false;
             request.Data.Attributes.Sensitive = env;
 
-            var result = await client.WorkspaceVariable.CreateAsync(configuration["workspaceId"], request);
+            var result = await client.WorkspaceVariable.CreateAsync(IntegrationContext.WorkspaceId, request);
             Assert.NotNull(result);
         }
     }

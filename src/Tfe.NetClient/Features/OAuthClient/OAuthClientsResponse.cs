@@ -75,7 +75,7 @@ namespace Tfe.NetClient.OAuthClients
     public class OAuthTokens
     {
         [JsonPropertyName("data")]
-        public object[] Data { get; set; }
+        public Data[] Data { get; set; }
 
         [JsonPropertyName("links")]
         public Links Links { get; set; }

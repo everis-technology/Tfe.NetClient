@@ -5,7 +5,10 @@ namespace Tfe.NetClient
     using Tfe.NetClient.Workspaces;
     using Microsoft.Extensions.Configuration;
     using System.Threading.Tasks;
+    using Xunit.Extensions.Ordering;
+    using System;
 
+    [Order(2)]
     public class WorkspaceTest : IClassFixture<IntegrationTestFixture>
     {
         private readonly IConfiguration configuration;
@@ -26,7 +29,7 @@ namespace Tfe.NetClient
             var client = new TfeClient(config);
 
             var request = new WorkspacesRequest();
-            var workspaceName = "test-workspace-1";
+            var workspaceName = $"test-{Guid.NewGuid().ToString()}";
             request.Data.Attributes.Name = workspaceName;
 
             var result = await client.Workspace.CreateAsync(organizationName, request);
@@ -34,7 +37,7 @@ namespace Tfe.NetClient
             Assert.Equal(workspaceName, result.Data.Attributes.Name);
         }
 
-        [Fact]
+        [Fact, Order(1)]
         public async Task CreateWorkspaceWithVCS()
         {
             var organizationName = configuration["organizationName"];
@@ -45,17 +48,18 @@ namespace Tfe.NetClient
             var client = new TfeClient(config);
 
             var request = new WorkspacesRequest();
-            var workspaceName = "test-workspace-github";
+            var workspaceName = $"test-{Guid.NewGuid().ToString()}";
             request.Data.Attributes.Name = workspaceName;
             request.Data.Attributes.VcsRepo = new RequestVcsRepo();
             request.Data.Attributes.VcsRepo.Identifier = configuration["repo"];
-            request.Data.Attributes.VcsRepo.OauthTokenId = configuration["oauthTokenId"];
+            request.Data.Attributes.VcsRepo.OauthTokenId = IntegrationContext.OAuthTokenId;
             request.Data.Attributes.VcsRepo.Branch = "";
             request.Data.Attributes.VcsRepo.DefaultBranch = true;
 
             var result = await client.Workspace.CreateAsync(organizationName, request);
             Assert.NotNull(result);
             Assert.Equal(workspaceName, result.Data.Attributes.Name);
+            IntegrationContext.WorkspaceId = result.Data.Id;
         }
 
         [Fact]
@@ -69,7 +73,7 @@ namespace Tfe.NetClient
             var client = new TfeClient(config);
 
             var request = new WorkspacesRequest();
-            var workspaceName = "test-workspace-2";
+            var workspaceName = $"test-{Guid.NewGuid().ToString()}";
             request.Data.Attributes.Name = workspaceName;
 
             var createResult = await client.Workspace.CreateAsync(organizationName, request);
@@ -92,7 +96,7 @@ namespace Tfe.NetClient
             var client = new TfeClient(config);
 
             var request = new WorkspacesRequest();
-            var workspaceName = "test-workspace-3";
+            var workspaceName = $"test-{Guid.NewGuid().ToString()}";
             request.Data.Attributes.Name = workspaceName;
 
             var createResult = await client.Workspace.CreateAsync(organizationName, request);
