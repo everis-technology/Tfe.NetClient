@@ -1,15 +1,15 @@
-ame: Tfe.NetClient
+name: Tfe.NetClient
 
 on:
   push:
     branches:
-      - master
+      - main
       - release-*
     tags:
       - v*
   pull_request:
     branches:
-      - master
+      - main
       - release-*
 jobs:
   build:
