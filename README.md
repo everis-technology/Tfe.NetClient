@@ -1,4 +1,4 @@
-![.github/workflows/TfeNetClient.yml](https://github.com/everis-technology/Tfe.NetClient/workflows/.github/workflows/TfeNetClient.yml/badge.svg)
+![Tfe.NetClient](https://github.com/everis-technology/Tfe.NetClient/workflows/Tfe.NetClient/badge.svg)
 
 # Tfe.NetClient
 
