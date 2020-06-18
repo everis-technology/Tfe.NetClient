@@ -1,3 +1,5 @@
+![.github/workflows/TfeNetClient.yml](https://github.com/everis-technology/Tfe.NetClient/workflows/.github/workflows/TfeNetClient.yml/badge.svg)
+
 # Tfe.NetClient
 
 Tfe.NetClient is a .NET Client for Terraform Enterpise.
