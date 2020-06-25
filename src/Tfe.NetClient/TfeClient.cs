@@ -9,14 +9,17 @@ namespace Tfe.NetClient
     using Tfe.NetClient.WorkspaceVariables;
 
     /// <summary>
-    /// 
+    /// TfeClient
     /// </summary>
     public class TfeClient
-    {
+    {   
+        /// <summary>
+        /// client
+        /// </summary>
         HttpClient client;
 
         /// <summary>
-        /// 
+        /// TfeClient
         /// </summary>
         /// <param name="config"></param>
         public TfeClient(TfeConfig config)
@@ -32,33 +35,39 @@ namespace Tfe.NetClient
         }
 
         /// <summary>
-        /// 
+        /// Organization
         /// </summary>
+        /// <value></value>
         public Organization Organization { get; }
 
         /// <summary>
-        /// 
+        /// SshKey
         /// </summary>
+        /// <value></value>
         public SshKey SshKey { get; }
 
         /// <summary>
-        /// 
+        /// Run
         /// </summary>
+        /// <value></value>
         public Run Run { get; }
 
         /// <summary>
-        /// 
+        /// Workspace
         /// </summary>
+        /// <value></value>
         public Workspace Workspace { get; }
 
         /// <summary>
-        /// 
+        /// WorkspaceVariable
         /// </summary>
+        /// <value></value>
         public WorkspaceVariable WorkspaceVariable { get; }
 
         /// <summary>
-        /// 
+        /// OAuthClient
         /// </summary>
+        /// <value></value>
         public OAuthClient OAuthClient { get; }
     }
 }

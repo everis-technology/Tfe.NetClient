@@ -8,16 +8,30 @@ namespace Tfe.NetClient
     using System.Threading.Tasks;
     using Xunit.Extensions.Ordering;
 
+    /// <summary>
+    /// OAuthClientTest
+    /// </summary>
     [Order(1)]
     public class OAuthClientTest : IClassFixture<IntegrationTestFixture>
     {
+        /// <summary>
+        /// configuration
+        /// </summary>
         private readonly IConfiguration configuration;
 
+        /// <summary>
+        /// OAuthClientTest
+        /// </summary>
+        /// <param name="fixture"></param>
         public OAuthClientTest(IntegrationTestFixture fixture)
         {
             this.configuration = fixture.Configuration;
         }
 
+        /// <summary>
+        /// CreateOAuthClient
+        /// </summary>
+        /// <returns></returns>
         [Fact, Order(1)]
         public async Task CreateOAuthClient()
         {

@@ -7,15 +7,29 @@ namespace Tfe.NetClient
     using System.Threading.Tasks;
     using System;
 
+    /// <summary>
+    /// SshKeyTest
+    /// </summary>
     public class SshKeyTest : IClassFixture<IntegrationTestFixture>
     {
+        /// <summary>
+        /// configuration
+        /// </summary>
         private readonly IConfiguration configuration;
 
+        /// <summary>
+        /// SshKeyTest
+        /// </summary>
+        /// <param name="fixture"></param>
         public SshKeyTest(IntegrationTestFixture fixture)
         {
             this.configuration = fixture.Configuration;
-        }
+        }   
 
+        /// <summary>
+        /// CreateSshKey
+        /// </summary>
+        /// <returns></returns>
         [Fact]
         public async Task CreateSshKey()
         {
@@ -36,6 +50,10 @@ namespace Tfe.NetClient
             Assert.Equal(keyName, result.Data.Attributes.Name);
         }
 
+        /// <summary>
+        /// ShowSshKey
+        /// </summary>
+        /// <returns></returns>
         [Fact]
         public async Task ShowSshKey()
         {
@@ -60,6 +78,10 @@ namespace Tfe.NetClient
             Assert.Equal(result.Data.Id, showResult.Data.Id);
         }
 
+        /// <summary>
+        /// ListSshKey
+        /// </summary>
+        /// <returns></returns>
         [Fact]
         public async Task ListSshKey()
         {

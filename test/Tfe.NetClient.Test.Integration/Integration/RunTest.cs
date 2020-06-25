@@ -7,16 +7,30 @@ namespace Tfe.NetClient
     using System.Threading.Tasks;
     using Xunit.Extensions.Ordering;
 
+    /// <summary>
+    /// RunTest
+    /// </summary>
     [Order(4)]
     public class RunTest : IClassFixture<IntegrationTestFixture>
     {
+        /// <summary>
+        /// configuration
+        /// </summary>
         private readonly IConfiguration configuration;
 
+        /// <summary>
+        /// RunTest
+        /// </summary>
+        /// <param name="fixture"></param>
         public RunTest(IntegrationTestFixture fixture)
         {
             this.configuration = fixture.Configuration;
         }
 
+        /// <summary>
+        /// CreateRun
+        /// </summary>
+        /// <returns></returns>
         [Fact, Order(1)]
         public async Task CreateRun()
         {
@@ -38,6 +52,10 @@ namespace Tfe.NetClient
             IntegrationContext.RunId = result.Data.Id;
         }
 
+        /// <summary>
+        /// ApplyRun
+        /// </summary>
+        /// <returns></returns>
         [Fact, Order(2)]
         public async Task ApplyRun()
         {

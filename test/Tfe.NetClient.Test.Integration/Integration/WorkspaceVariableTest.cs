@@ -7,16 +7,30 @@ namespace Tfe.NetClient
     using System.Threading.Tasks;
     using Xunit.Extensions.Ordering;
 
+    /// <summary>
+    /// WorkspaceVariable
+    /// </summary>
     [Order(3)]
     public class WorkspaceVariable : IClassFixture<IntegrationTestFixture>
     {
+        /// <summary>
+        /// configuration
+        /// </summary>
         private readonly IConfiguration configuration;
 
+        /// <summary>
+        /// WorkspaceVariable
+        /// </summary>
+        /// <param name="fixture"></param>
         public WorkspaceVariable(IntegrationTestFixture fixture)
         {
             this.configuration = fixture.Configuration;
         }
 
+        /// <summary>
+        /// CreateWorkspaceVariables
+        /// </summary>
+        /// <returns></returns>
         [Fact, Order(1)]
         public async Task CreateWorkspaceVariables()
         {
@@ -37,6 +51,15 @@ namespace Tfe.NetClient
             await CreateWorkspaceVariable("ARM_TENANT_ID", configuration["ARM_TENANT_ID"], "ARM_TENANT_ID", true, client);
         }
 
+        /// <summary>
+        /// CreateWorkspaceVariable
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        /// <param name="description"></param>
+        /// <param name="env"></param>
+        /// <param name="client"></param>
+        /// <returns></returns>
         private async Task CreateWorkspaceVariable(string key, string value, string description, bool env, TfeClient client)
         {
             var request = new WorkspaceVariablesRequest();

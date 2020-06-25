@@ -4,12 +4,13 @@ namespace Tfe.NetClient.OAuthClients
     using System.Threading.Tasks;
 
     /// <summary>
-    /// 
+    /// OAuthClient
     /// </summary>
     public class OAuthClient : BaseClient
     {
+
         /// <summary>
-        /// 
+        /// OAuthClient
         /// </summary>
         /// <param name="client"></param>
         /// <returns></returns>
@@ -18,7 +19,7 @@ namespace Tfe.NetClient.OAuthClients
         }
 
         /// <summary>
-        /// 
+        /// ListAsync
         /// </summary>
         /// <param name="organizationName"></param>
         /// <returns></returns>
@@ -28,7 +29,7 @@ namespace Tfe.NetClient.OAuthClients
         }
 
         /// <summary>
-        /// 
+        /// ShowAsync
         /// </summary>
         /// <param name="oauthClientId"></param>
         /// <returns></returns>
@@ -38,7 +39,7 @@ namespace Tfe.NetClient.OAuthClients
         }
 
         /// <summary>
-        /// 
+        /// CreateAsync
         /// </summary>
         /// <param name="organizationName"></param>
         /// <param name="request"></param>
@@ -49,7 +50,7 @@ namespace Tfe.NetClient.OAuthClients
         }
 
         /// <summary>
-        /// 
+        /// UpdateAsync
         /// </summary>
         /// <param name="oauthClientId"></param>
         /// <param name="request"></param>
@@ -60,7 +61,7 @@ namespace Tfe.NetClient.OAuthClients
         }
 
         /// <summary>
-        /// 
+        /// DestroyAsync
         /// </summary>
         /// <param name="oauthClientId"></param>
         /// <returns></returns>

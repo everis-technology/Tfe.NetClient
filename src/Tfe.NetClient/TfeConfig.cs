@@ -2,15 +2,14 @@ namespace Tfe.NetClient
 {
     using System.Net.Http;
     using System.Net.Http.Headers;
-
+    
     /// <summary>
-    /// 
+    /// TfeConfig
     /// </summary>
     public class TfeConfig
-    {
-
+    {   
         /// <summary>
-        /// 
+        /// TfeConfig
         /// </summary>
         /// <param name="token"></param>
         /// <param name="client"></param>
@@ -19,7 +18,7 @@ namespace Tfe.NetClient
         }
 
         /// <summary>
-        /// 
+        /// TfeConfig
         /// </summary>
         /// <param name="endpoint"></param>
         /// <param name="token"></param>
@@ -32,8 +31,9 @@ namespace Tfe.NetClient
         }
 
         /// <summary>
-        /// 
+        /// HttpClient
         /// </summary>
+        /// <value></value>
         public HttpClient HttpClient { get; }
     }
 }

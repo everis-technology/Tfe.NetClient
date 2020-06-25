@@ -6,20 +6,38 @@ namespace Tfe.NetClient
     using System.Text.Json;
     using System.Threading.Tasks;
 
+    /// <summary>
+    /// BaseClient
+    /// </summary>
     public class BaseClient
     {
+        /// <summary>
+        /// client
+        /// </summary>
         protected HttpClient client;
 
+        /// <summary>
+        /// serializerJsonOptions
+        /// </summary>
+        /// <returns></returns>
         private JsonSerializerOptions serializerJsonOptions = new JsonSerializerOptions()
         {
             IgnoreNullValues = true
         };
 
+        /// <summary>
+        /// BaseClient
+        /// </summary>
+        /// <param name="client"></param>
         public BaseClient(HttpClient client)
         {
             this.client = client;
         }
-
+        
+        /// <summary>
+        /// GetAsync
+        /// </summary>
+        /// <typeparam name="Res"></typeparam>
         protected async Task<Res> GetAsync<Res>(string requestUri) where Res : class
         {
             var result = await client.GetAsync(requestUri).ConfigureAwait(false);
@@ -29,6 +47,11 @@ namespace Tfe.NetClient
             return response;
         }
 
+        /// <summary>
+        /// PostAsync
+        /// </summary>
+        /// <typeparam name="Req"></typeparam>
+        /// <typeparam name="Res"></typeparam>
         protected async Task<Res> PostAsync<Req, Res>(string requestUri, Req request) where Req : class where Res : class
         {
             var parameters = JsonSerializer.Serialize(request, serializerJsonOptions);
@@ -42,6 +65,10 @@ namespace Tfe.NetClient
             return response;
         }
 
+        /// <summary>
+        /// PostAsync
+        /// </summary>
+        /// <typeparam name="Req"></typeparam>
         protected async Task PostAsync<Req>(string requestUri, Req request) where Req : class
         {
             var parameters = JsonSerializer.Serialize(request, serializerJsonOptions);
@@ -52,6 +79,11 @@ namespace Tfe.NetClient
             result.EnsureSuccessStatusCode();
         }
 
+        /// <summary>
+        /// PatchAsync
+        /// </summary>
+        /// <typeparam name="Req"></typeparam>
+        /// <typeparam name="Res"></typeparam>
         protected async Task<Res> PatchAsync<Req, Res>(string requestUri, Req request) where Req : class where Res : class
         {
             var parameters = JsonSerializer.Serialize(request, serializerJsonOptions);
@@ -66,6 +98,11 @@ namespace Tfe.NetClient
             return organization;
         }
 
+        /// <summary>
+        /// DeleteAsync
+        /// </summary>
+        /// <param name="requestUri"></param>
+        /// <returns></returns>
         protected async Task DeleteAsync(string requestUri)
         {
             var result = await client.DeleteAsync(requestUri).ConfigureAwait(false);

@@ -8,16 +8,30 @@ namespace Tfe.NetClient
     using Xunit.Extensions.Ordering;
     using System;
 
+    /// <summary>
+    /// WorkspaceTest
+    /// </summary>
     [Order(2)]
     public class WorkspaceTest : IClassFixture<IntegrationTestFixture>
     {
+        /// <summary>
+        /// configuration
+        /// </summary>
         private readonly IConfiguration configuration;
 
+        /// <summary>
+        /// WorkspaceTest
+        /// </summary>
+        /// <param name="fixture"></param>
         public WorkspaceTest(IntegrationTestFixture fixture)
         {
             this.configuration = fixture.Configuration;
         }
 
+        /// <summary>
+        /// CreateWorkspace
+        /// </summary>
+        /// <returns></returns>
         [Fact]
         public async Task CreateWorkspace()
         {
@@ -37,6 +51,10 @@ namespace Tfe.NetClient
             Assert.Equal(workspaceName, result.Data.Attributes.Name);
         }
 
+        /// <summary>
+        /// CreateWorkspaceWithVCS
+        /// </summary>
+        /// <returns></returns>
         [Fact, Order(1)]
         public async Task CreateWorkspaceWithVCS()
         {
@@ -61,7 +79,11 @@ namespace Tfe.NetClient
             Assert.Equal(workspaceName, result.Data.Attributes.Name);
             IntegrationContext.WorkspaceId = result.Data.Id;
         }
-
+        
+        /// <summary>
+        /// ShowWorkspaceByName
+        /// </summary>
+        /// <returns></returns>
         [Fact]
         public async Task ShowWorkspaceByName()
         {
@@ -85,6 +107,10 @@ namespace Tfe.NetClient
             Assert.Equal(workspaceName, showResult.Data.Attributes.Name);
         }
 
+        /// <summary>
+        /// ShowWorkspaceById
+        /// </summary>
+        /// <returns></returns>
         [Fact]
         public async Task ShowWorkspaceById()
         {
