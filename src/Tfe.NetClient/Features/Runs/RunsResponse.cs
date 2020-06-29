@@ -299,21 +299,21 @@ namespace Tfe.NetClient.Runs
         /// </summary>
         /// <value></value>
         [JsonPropertyName("apply")]
-        public Apply Apply { get; set; }
+        public ApplyResponse Apply { get; set; }
 
         /// <summary>
         /// ConfigurationVersion
         /// </summary>
         /// <value></value>
         [JsonPropertyName("configuration-version")]
-        public Apply ConfigurationVersion { get; set; }
+        public ApplyResponse ConfigurationVersion { get; set; }
 
         /// <summary>
         /// Plan
         /// </summary>
         /// <value></value>
         [JsonPropertyName("plan")]
-        public Apply Plan { get; set; }
+        public ApplyResponse Plan { get; set; }
 
         /// <summary>
         /// RunEvents
@@ -340,7 +340,7 @@ namespace Tfe.NetClient.Runs
     /// <summary>
     /// Apply
     /// </summary>
-    public class Apply
+    public class ApplyResponse
     {
         /// <summary>
         /// Data

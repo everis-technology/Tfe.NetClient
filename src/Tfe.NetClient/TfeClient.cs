@@ -7,12 +7,15 @@ namespace Tfe.NetClient
     using Tfe.NetClient.SshKeys;
     using Tfe.NetClient.Workspaces;
     using Tfe.NetClient.WorkspaceVariables;
+    using Tfe.NetClient.Applies;
+    using Tfe.NetClient.StateVersions;
+    using Tfe.NetClient.StateVersionOutputs;
 
     /// <summary>
     /// TfeClient
     /// </summary>
     public class TfeClient
-    {   
+    {
         /// <summary>
         /// client
         /// </summary>
@@ -26,13 +29,23 @@ namespace Tfe.NetClient
         {
             this.client = config.HttpClient;
 
+            Apply = new Apply(client);
             Organization = new Organization(client);
             SshKey = new SshKey(client);
             Run = new Run(client);
             Workspace = new Workspace(client);
             WorkspaceVariable = new WorkspaceVariable(client);
             OAuthClient = new OAuthClient(client);
+            StateVersion = new StateVersion(client);
+            StateVersionOutput = new StateVersionOutput(client);
         }
+
+
+        /// <summary>
+        /// Applies
+        /// </summary>
+        /// <value></value>
+        public Apply Apply { get; }
 
         /// <summary>
         /// Organization
@@ -69,6 +82,18 @@ namespace Tfe.NetClient
         /// </summary>
         /// <value></value>
         public OAuthClient OAuthClient { get; }
+
+        /// <summary>
+        /// State Version
+        /// </summary>
+        /// <value></value>
+        public StateVersion StateVersion { get; }
+
+        /// <summary>
+        /// State Version Output
+        /// </summary>
+        /// <value></value>
+        public StateVersionOutput StateVersionOutput { get; }
     }
 }
 
