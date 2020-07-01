@@ -30,7 +30,7 @@ namespace Tfe.NetClient.Workspaces
         {
             return await GetAsync<WorkspacesResponse>($"organizations/{organizationName}/workspaces").ConfigureAwait(false);
         }
-        
+
         /// <summary>
         /// ShowAsync
         /// </summary>
@@ -105,6 +105,17 @@ namespace Tfe.NetClient.Workspaces
         public async Task DeleteAsync(string organizationName, string workspaceName)
         {
             await DeleteAsync($"organizations/{organizationName}/workspaces/{workspaceName}").ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// AssignSshKeyAsync
+        /// </summary>
+        /// <param name="workspaceId"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public async Task<WorkspaceResponse> AssignSshKeyAsync(string workspaceId, AssignSsshKeyRequest request)
+        {
+            return await PatchAsync<AssignSsshKeyRequest, WorkspaceResponse>($"workspaces/{workspaceId}/relationships/ssh-key", request).ConfigureAwait(false);
         }
     }
 }

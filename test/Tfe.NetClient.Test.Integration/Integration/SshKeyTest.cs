@@ -6,10 +6,12 @@ namespace Tfe.NetClient
     using Microsoft.Extensions.Configuration;
     using System.Threading.Tasks;
     using System;
+    using Xunit.Extensions.Ordering;
 
     /// <summary>
     /// SshKeyTest
     /// </summary>
+    [Order(2)]
     public class SshKeyTest : IClassFixture<IntegrationTestFixture>
     {
         /// <summary>
@@ -30,7 +32,7 @@ namespace Tfe.NetClient
         /// CreateSshKey
         /// </summary>
         /// <returns></returns>
-        [Fact]
+        [Fact, Order(1)]
         public async Task CreateSshKey()
         {
             var organizationName = configuration["organizationName"];
@@ -48,6 +50,8 @@ namespace Tfe.NetClient
             var result = await client.SshKey.CreateAsync(organizationName, request);
             Assert.NotNull(result);
             Assert.Equal(keyName, result.Data.Attributes.Name);
+
+            IntegrationContext.SshKeyId = result.Data.Id;
         }
 
         /// <summary>

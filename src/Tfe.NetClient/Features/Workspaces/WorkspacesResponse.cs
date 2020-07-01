@@ -7,7 +7,7 @@ namespace Tfe.NetClient.Workspaces
     /// Relationships
     /// </summary>
     public class Relationships
-    {   
+    {
         /// <summary>
         /// Organization
         /// </summary>
@@ -34,7 +34,7 @@ namespace Tfe.NetClient.Workspaces
     /// Data
     /// </summary>
     public class Data
-    {   
+    {
         /// <summary>
         /// Id
         /// </summary>
@@ -127,7 +127,7 @@ namespace Tfe.NetClient.Workspaces
         /// </summary>
         /// <value></value>
         [JsonPropertyName("data")]
-        public object Data { get; set; }
+        public OrganizationDatam Data { get; set; }
     }
 
     /// <summary>
@@ -204,7 +204,7 @@ namespace Tfe.NetClient.Workspaces
         /// <value></value>
         [JsonPropertyName("permissions")]
         public Permissions Permissions { get; set; }
-        
+
         /// <summary>
         /// QueueAllRuns
         /// </summary>
@@ -218,7 +218,7 @@ namespace Tfe.NetClient.Workspaces
         /// <value></value>
         [JsonPropertyName("source")]
         public string Source { get; set; }
-        
+
         /// <summary>
         /// SourceName
         /// </summary>
@@ -266,7 +266,7 @@ namespace Tfe.NetClient.Workspaces
     /// Permissions
     /// </summary>
     public class Permissions
-    {   
+    {
         /// <summary>
         /// CanUpdate
         /// </summary>
@@ -321,7 +321,7 @@ namespace Tfe.NetClient.Workspaces
     /// VcsRepo
     /// </summary>
     public class VcsRepo
-    {   
+    {
         /// <summary>
         /// Identifier
         /// </summary>
@@ -349,9 +349,9 @@ namespace Tfe.NetClient.Workspaces
         /// <value></value>
         [JsonPropertyName("ingress-submodules")]
         public bool IngressSubmodules { get; set; }
-    }   
+    }
 
-    
+
     /// <summary>
     /// Self
     /// </summary>

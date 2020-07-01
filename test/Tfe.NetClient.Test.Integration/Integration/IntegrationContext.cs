@@ -22,5 +22,11 @@ namespace Tfe.NetClient
         /// </summary>
         /// <value></value>
         public static string RunId { get; set; }
+
+        /// <summary>
+        /// SshKeyId
+        /// </summary>
+        /// <value></value>
+        public static string SshKeyId { get; set; }
     }
 }

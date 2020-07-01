@@ -10,7 +10,7 @@ namespace Tfe.NetClient
     /// <summary>
     /// RunTest
     /// </summary>
-    [Order(4)]
+    [Order(5)]
     public class RunTest : IClassFixture<IntegrationTestFixture>
     {
         /// <summary>

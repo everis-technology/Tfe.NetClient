@@ -10,7 +10,7 @@ namespace Tfe.NetClient
     /// <summary>
     /// WorkspaceVariable
     /// </summary>
-    [Order(3)]
+    [Order(4)]
     public class WorkspaceVariable : IClassFixture<IntegrationTestFixture>
     {
         /// <summary>

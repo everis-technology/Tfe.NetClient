@@ -11,7 +11,7 @@ namespace Tfe.NetClient
     /// <summary>
     /// WorkspaceTest
     /// </summary>
-    [Order(2)]
+    [Order(3)]
     public class WorkspaceTest : IClassFixture<IntegrationTestFixture>
     {
         /// <summary>
@@ -79,7 +79,29 @@ namespace Tfe.NetClient
             Assert.Equal(workspaceName, result.Data.Attributes.Name);
             IntegrationContext.WorkspaceId = result.Data.Id;
         }
-        
+
+        /// <summary>
+        /// AssignSshKeyToWorkSpace
+        /// </summary>
+        /// <returns></returns>
+        [Fact, Order(2)]
+        public async Task AssignSshKeyToWorkSpace()
+        {
+            var organizationName = configuration["organizationName"];
+
+            var httpClient = new HttpClient();
+            var config = new TfeConfig(configuration["teamToken"], httpClient);
+
+            var client = new TfeClient(config);
+
+            var request = new AssignSsshKeyRequest();
+            request.Data.Attributes.Id = IntegrationContext.SshKeyId;
+
+            var result = await client.Workspace.AssignSshKeyAsync(IntegrationContext.WorkspaceId, request);
+            Assert.NotNull(result);
+            Assert.Equal(IntegrationContext.SshKeyId, result.Data.Relationships.SshKey.Data.Id);
+        }
+
         /// <summary>
         /// ShowWorkspaceByName
         /// </summary>

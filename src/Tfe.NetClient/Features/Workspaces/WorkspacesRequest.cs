@@ -6,7 +6,7 @@ namespace Tfe.NetClient.Workspaces
     /// WorkspacesRequest
     /// </summary>
     public class WorkspacesRequest
-    {   
+    {
         /// <summary>
         /// WorkspacesRequest
         /// </summary>
@@ -14,7 +14,7 @@ namespace Tfe.NetClient.Workspaces
         {
             this.Data = new RequestData();
         }
-        
+
         /// <summary>
         /// Data
         /// </summary>
@@ -47,7 +47,7 @@ namespace Tfe.NetClient.Workspaces
         /// Type
         /// </summary>
         [JsonPropertyName("type")]
-        public string Type => "workspaces";
+        public string Type { get; } = "workspaces";
     }
 
     /// <summary>
