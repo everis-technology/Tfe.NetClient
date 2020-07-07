@@ -31,7 +31,7 @@ namespace Tfe.NetClient.StateVersions
         /// <summary>
         /// CreateAsync
         /// </summary>
-        /// <param name="organizationName"></param>
+        /// <param name="workspaceId"></param>
         /// <param name="request"></param>
         /// <returns></returns>
         public async Task<StateVersionResponse> CreateAsync(string workspaceId, StateVersionRequest request)
