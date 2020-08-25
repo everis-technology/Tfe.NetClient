@@ -4,8 +4,27 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <Version>0.1.0</Version>
+    <Authors>Carlos Mendible</Authors>
+    <Company></Company>
+    <PackageId>Tfe.NetClient</PackageId>
+    <Title>Tfe.NetClient</Title>
+    <Copyright></Copyright>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/everis-technology/Tfe.NetClient</PackageProjectUrl>
+    <PackageTags>Terraform Enterprise .NET Client</PackageTags>
+    <Description>A Terraform Enterprise .NET Client</Description>
+    <PackageReleaseNotes></PackageReleaseNotes>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <!-- <AssemblyOriginatorKeyFile>Tfe.NetClient.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>true</SignAssembly> -->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="System.Text.Json" Version="4.7.2" />
   </ItemGroup>
-
 </Project>
