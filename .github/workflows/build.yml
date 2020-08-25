@@ -1,4 +1,4 @@
-name: Tfe.NetClient
+name: Build & Test
 
 on:
   push:
