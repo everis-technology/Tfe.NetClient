@@ -2,9 +2,15 @@
 
 # Tfe.NetClient
 
-Tfe.NetClient is a .NET Client for Terraform Enterpise.
+Tfe.NetClient is a .NET Client for Terraform Enterprise.
 
 ## Basic usage
+
+### Add the package to your project
+
+``` shell
+dotnet add package Tfe.NetClient --version 0.1.0
+``` 
 
 ### Create a **TfeConfig** object
 
