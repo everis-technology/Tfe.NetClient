@@ -61,6 +61,62 @@ namespace Tfe.NetClient.Workspaces
         /// <value></value>
         [JsonPropertyName("name")]
         public string Name { get; set; }
+        
+        /// <summary>
+        /// AgentPoolId
+        /// </summary>
+        /// <value></value>
+        [JsonPropertyName("agent-pool-id")]
+        public string AgentPoolId { get; set; }
+        
+        /// <summary>
+        /// AllowDestroyPlan
+        /// </summary>
+        /// <value></value>
+        [JsonPropertyName("allow-destroy-plan")]
+        public bool? AllowDestroyPlan { get; set; }
+        
+        /// <summary>
+        /// AutoApply
+        /// </summary>
+        /// <value></value>
+        [JsonPropertyName("auto-apply")]
+        public bool? AutoApply { get; set; }
+        
+        /// <summary>
+        /// Description
+        /// </summary>
+        /// <value></value>
+        [JsonPropertyName("description")]
+        public string Description { get; set; }
+        
+        /// <summary>
+        /// ExecutionMode
+        /// </summary>
+        /// <value></value>
+        [JsonPropertyName("execution-mode")]
+        public string ExecutionMode { get; set; }
+        
+        /// <summary>
+        /// FileTriggersEnabled
+        /// </summary>
+        /// <value></value>
+        [JsonPropertyName("file-triggers-enabled")]
+        public bool? FileTriggersEnabled { get; set; }
+        
+        /// <summary>
+        /// QueueAllRuns
+        /// </summary>
+        /// <value></value>
+        [JsonPropertyName("queue-all-runs")]
+        public bool? QueueAllRuns { get; set; }
+        
+        /// <summary>
+        /// SpeculativeEnabled
+        /// </summary>
+        /// <value></value>
+        [JsonPropertyName("speculative-enabled")]
+        public bool? SpeculativeEnabled { get; set; }
 
         /// <summary>
         /// TerraformVersion
