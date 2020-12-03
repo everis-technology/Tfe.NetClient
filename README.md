@@ -9,7 +9,7 @@ Tfe.NetClient is a .NET Client for Terraform Enterprise.
 ### Add the package to your project
 
 ``` shell
-dotnet add package Tfe.NetClient --version 0.1.0
+dotnet add package Tfe.NetClient
 ``` 
 
 ### Create a **TfeConfig** object
