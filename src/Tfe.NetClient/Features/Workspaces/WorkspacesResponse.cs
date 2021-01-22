@@ -28,6 +28,13 @@ namespace Tfe.NetClient.Workspaces
         /// <value></value>
         [JsonPropertyName("latest-run")]
         public SimpleDatam LatestRun { get; set; }
+
+        /// <summary>
+        /// CurrentStateVersion
+        /// </summary>
+        /// <value></value>
+        [JsonPropertyName("current-state-version")]
+        public SimpleDatam CurrentStateVersion { get; set; }
     }
 
     /// <summary>

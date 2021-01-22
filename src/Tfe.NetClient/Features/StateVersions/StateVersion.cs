@@ -38,5 +38,15 @@ namespace Tfe.NetClient.StateVersions
         {
             return await PostAsync<StateVersionRequest, StateVersionResponse>($"/workspaces/{workspaceId}/state-versions", request).ConfigureAwait(false);
         }
+
+        /// <summary>
+        /// ShowCurrentAsync
+        /// </summary>
+        /// <param name="workspaceId"></param>
+        /// <returns></returns>
+        public async Task<StateVersionResponse> ShowCurrentAsync(string workspaceId)
+        {
+            return await GetAsync<StateVersionResponse>($"workspaces/{workspaceId}/current-state-version").ConfigureAwait(false);
+        }
     }
 }
