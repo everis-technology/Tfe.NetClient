@@ -10,6 +10,7 @@ namespace Tfe.NetClient
     using Tfe.NetClient.Applies;
     using Tfe.NetClient.StateVersions;
     using Tfe.NetClient.StateVersionOutputs;
+    using Tfe.NetClient.TeamWorkspaces;
 
     /// <summary>
     /// TfeClient
@@ -38,6 +39,7 @@ namespace Tfe.NetClient
             OAuthClient = new OAuthClient(client);
             StateVersion = new StateVersion(client);
             StateVersionOutput = new StateVersionOutput(client);
+            TeamWorkspace = new TeamWorkspace(client);
         }
 
 
@@ -94,6 +96,12 @@ namespace Tfe.NetClient
         /// </summary>
         /// <value></value>
         public StateVersionOutput StateVersionOutput { get; }
+
+        /// <summary>
+        /// TeamWorkspace
+        /// </summary>
+        /// <value></value>
+        public TeamWorkspace TeamWorkspace { get; }
     }
 }
 

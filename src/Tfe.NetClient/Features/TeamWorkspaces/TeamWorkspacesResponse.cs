@@ -5,20 +5,33 @@ namespace Tfe.NetClient.TeamWorkspaces
     /// <summary>
     /// TeamWorkspacesResponse
     /// </summary>
-    public partial class TeamWorkspacesResponse
-    {   
+    public class TeamWorkspacesResponse
+    {
         /// <summary>
         /// Data
         /// </summary>
         /// <value></value>
         [JsonPropertyName("data")]
-        public Datum[] Data { get; set; }
+        public Data[] Data { get; set; }
     }
 
     /// <summary>
-    /// Datum
+    /// TeamWorkspaceResponse
     /// </summary>
-    public partial class Datum
+    public class TeamWorkspaceResponse
+    {
+        /// <summary>
+        /// Data
+        /// </summary>
+        /// <value></value>
+        [JsonPropertyName("data")]
+        public Data Data { get; set; }
+    }
+
+    /// <summary>
+    /// Data
+    /// </summary>
+    public partial class Data
     {
         /// <summary>
         /// Id
@@ -47,7 +60,7 @@ namespace Tfe.NetClient.TeamWorkspaces
         /// <value></value>
         [JsonPropertyName("relationships")]
         public Relationships Relationships { get; set; }
-        
+
         /// <summary>
         /// Links
         /// </summary>
@@ -121,46 +134,46 @@ namespace Tfe.NetClient.TeamWorkspaces
     /// Relationships
     /// </summary>
     public partial class Relationships
-    {   
+    {
         /// <summary>
         /// Team
         /// </summary>
         /// <value></value>
         [JsonPropertyName("team")]
-        public Team Team { get; set; }
+        public Relationship Team { get; set; }
 
         /// <summary>
         /// Workspace
         /// </summary>
         /// <value></value>
         [JsonPropertyName("workspace")]
-        public Team Workspace { get; set; }
+        public Relationship Workspace { get; set; }
     }
 
     /// <summary>
-    /// Team
+    /// Relationship
     /// </summary>
-    public partial class Team
+    public partial class Relationship
     {
         /// <summary>
-        /// Data
+        /// RelationshipData
         /// </summary>
         /// <value></value>
         [JsonPropertyName("data")]
-        public Data Data { get; set; }
+        public RelationshipData RelationshipData { get; set; }
 
         /// <summary>
         /// Links
         /// </summary>
         /// <value></value>
         [JsonPropertyName("links")]
-        public TeamLinks Links { get; set; }
+        public RelationshipLinks Links { get; set; }
     }
 
     /// <summary>
-    /// Data
+    /// RelationshipData
     /// </summary>
-    public partial class Data
+    public partial class RelationshipData
     {
         /// <summary>
         /// Id
@@ -178,9 +191,9 @@ namespace Tfe.NetClient.TeamWorkspaces
     }
 
     /// <summary>
-    /// TeamLinks
+    /// RelationshipLinks
     /// </summary>
-    public partial class TeamLinks
+    public partial class RelationshipLinks
     {
         /// <summary>
         /// Related
