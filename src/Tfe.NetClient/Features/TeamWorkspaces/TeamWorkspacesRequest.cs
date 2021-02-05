@@ -72,7 +72,7 @@
     /// UpdateRequestData
     /// </summary>
     /// <value></value>
-    public partial class UpdateRequestData
+    public class UpdateRequestData
     {
         /// <summary>
         /// Attributes
@@ -86,7 +86,7 @@
     /// RequestData
     /// </summary>
     /// <value></value>
-    public partial class RequestData : UpdateRequestData
+    public class RequestData : UpdateRequestData
     {
         /// <summary>
         /// TeamWorkspacesRequestData
@@ -115,7 +115,7 @@
     /// <summary>
     /// RequestRelationships
     /// </summary>
-    public partial class RequestRelationships
+    public class RequestRelationships
     {
         /// <summary>
         /// RequestRelationships
@@ -146,7 +146,7 @@
     /// <summary>
     /// RequestRelationship
     /// </summary>
-    public partial class RequestRelationship
+    public class RequestRelationship
     {
         public RequestRelationship()
         {

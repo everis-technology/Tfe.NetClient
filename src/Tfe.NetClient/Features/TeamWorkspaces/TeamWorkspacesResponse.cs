@@ -31,7 +31,7 @@ namespace Tfe.NetClient.TeamWorkspaces
     /// <summary>
     /// Data
     /// </summary>
-    public partial class Data
+    public class Data
     {
         /// <summary>
         /// Id
@@ -72,7 +72,7 @@ namespace Tfe.NetClient.TeamWorkspaces
     /// <summary>
     /// Attributes
     /// </summary>
-    public partial class Attributes
+    public class Attributes
     {
         /// <summary>
         /// Access
@@ -133,7 +133,7 @@ namespace Tfe.NetClient.TeamWorkspaces
     /// <summary>
     /// Relationships
     /// </summary>
-    public partial class Relationships
+    public class Relationships
     {
         /// <summary>
         /// Team
@@ -153,7 +153,7 @@ namespace Tfe.NetClient.TeamWorkspaces
     /// <summary>
     /// Relationship
     /// </summary>
-    public partial class Relationship
+    public class Relationship
     {
         /// <summary>
         /// RelationshipData
@@ -173,7 +173,7 @@ namespace Tfe.NetClient.TeamWorkspaces
     /// <summary>
     /// RelationshipData
     /// </summary>
-    public partial class RelationshipData
+    public class RelationshipData
     {
         /// <summary>
         /// Id
@@ -193,7 +193,7 @@ namespace Tfe.NetClient.TeamWorkspaces
     /// <summary>
     /// RelationshipLinks
     /// </summary>
-    public partial class RelationshipLinks
+    public class RelationshipLinks
     {
         /// <summary>
         /// Related
