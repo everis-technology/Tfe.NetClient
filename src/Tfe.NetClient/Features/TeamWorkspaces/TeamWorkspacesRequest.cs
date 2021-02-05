@@ -7,7 +7,7 @@
     /// UpdateRequest
     /// </summary>
     /// <value></value>
-    public partial class UpdateRequest
+    public class UpdateRequest
     {
         /// <summary>
         /// TeamWorkspacesRequestData
@@ -30,7 +30,7 @@
     /// Request
     /// </summary>
     /// <value></value>
-    public partial class Request
+    public class Request
     {
         /// <summary>
         /// TeamWorkspacesRequestData
@@ -55,14 +55,16 @@
         public Request(string teamId, string workspaceId, dynamic permissions)
         {
             if (permissions is TeamWorkspacePermissions || permissions is TeamWorkspaceCustomPermissions)
+            {                
+                this.Data = new RequestData();
+                this.Data.Relationships.Team.RelationshipData.Id = teamId;
+                this.Data.Relationships.Workspace.RelationshipData.Id = workspaceId;
+                this.Data.Attributes = permissions;
+            }
+            else
             {
                 throw new ArgumentException();
             }
-
-            this.Data = new RequestData();
-            this.Data.Relationships.Team.RelationshipData.Id = teamId;
-            this.Data.Relationships.Workspace.RelationshipData.Id = workspaceId;
-            this.Data.Attributes = permissions;
         }
     }
 

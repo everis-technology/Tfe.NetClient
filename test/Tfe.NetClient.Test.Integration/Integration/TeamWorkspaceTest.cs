@@ -1,4 +1,4 @@
-﻿namespace Tfe.NetClient.Test.Integration.Integration
+﻿namespace Tfe.NetClient
 {
     using System;
     using System.Net.Http;
@@ -15,6 +15,11 @@
     [Order(6)]
     public class TeamWorkspaceTest : IClassFixture<IntegrationTestFixture>
     {
+        /// <summary>
+        /// tid
+        /// </summary>
+        private const string tid = "testId";
+
         /// <summary>
         /// configuration
         /// </summary>
@@ -115,5 +120,20 @@
             Assert.Equal(teamId, result.Data.Relationships.Team.RelationshipData.Id);
         }
 
+        [Fact]
+        public void RequestOnlyAcceptsPermissionObjects()
+        {
+            void stringPerms() => new Request(tid, tid, "not permissions");
+            Assert.Throws<ArgumentException>(stringPerms);
+
+            void urPerms() => new Request(tid, tid, new UpdateRequest());
+            Assert.Throws<ArgumentException>(urPerms);
+
+            var custom = new Request(tid, tid, new TeamWorkspaceCustomPermissions());
+            Assert.Equal("custom", custom.Data.Attributes.Access);
+
+            var admin = new Request(tid, tid, new TeamWorkspaceCustomPermissions { Access = AccessPermissions.Admin });
+            Assert.Equal("admin", admin.Data.Attributes.Access);
+        }
     }
 }
