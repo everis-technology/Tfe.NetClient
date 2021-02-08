@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Version>0.1.2</Version>
     <Authors>Carlos Mendible</Authors>
     <Company></Company>
     <PackageId>Tfe.NetClient</PackageId>
@@ -25,8 +24,18 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
+  <!-- Configure properties for MinVer -->
+  <PropertyGroup>
+    <MinVerTagPrefix>v</MinVerTagPrefix>
+    <MinVerDefaultPreReleasePhase>rc</MinVerDefaultPreReleasePhase>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="MinVer" Version="2.4.0">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
