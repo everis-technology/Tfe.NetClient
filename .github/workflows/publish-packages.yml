@@ -2,7 +2,8 @@ name: Publish Packages
 
 on:
   push:
-    branches: [main]
+    tags:
+      - v*
 
 jobs:
   build:
@@ -14,6 +15,11 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 3.1.101
+       # Install minver-cli and set the currentVersion variable to the output of the minver command
+      - name: minver-cli 
+        run: |
+          dotnet tool install --global minver-cli --version 2.4.0
+          echo "MINVERVERSIONOVERRIDE=$(minver -t v -d rc)" >> $GITHUB_ENV
       - name: Install dependencies
         run: dotnet restore
       - name: Build
@@ -21,6 +27,6 @@ jobs:
       - name: Publish Tfe.NetClient
         uses: brandedoutcast/publish-nuget@v2.5.5
         with:
-          PROJECT_FILE_PATH: src/Tfe.NetClient/Tfe.NetClient.csproj
+          VERSION_STATIC: ${{ env.MINVERVERSIONOVERRIDE }}
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
           NUGET_SOURCE: https://api.nuget.org
