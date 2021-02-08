@@ -1,6 +1,5 @@
 ﻿namespace Tfe.NetClient.TeamWorkspaces
 {
-    using System;
     using System.Text.Json.Serialization;
 
     /// <summary>
@@ -10,7 +9,7 @@
     public class UpdateRequest
     {
         /// <summary>
-        /// TeamWorkspacesRequestData
+        /// Data
         /// </summary>
         /// <value></value>
         [JsonPropertyName("data")]
@@ -33,7 +32,7 @@
     public class Request
     {
         /// <summary>
-        /// TeamWorkspacesRequestData
+        /// Data
         /// </summary>
         /// <value></value>
         [JsonPropertyName("data")]
@@ -52,19 +51,12 @@
         /// Request
         /// </summary>
         /// <value></value>
-        public Request(string teamId, string workspaceId, dynamic permissions)
-        {
-            if (permissions is TeamWorkspacePermissions || permissions is TeamWorkspaceCustomPermissions)
-            {                
+        public Request(string teamId, string workspaceId, TeamWorkspacePermissions permissions)
+        {            
                 this.Data = new RequestData();
                 this.Data.Relationships.Team.RelationshipData.Id = teamId;
                 this.Data.Relationships.Workspace.RelationshipData.Id = workspaceId;
                 this.Data.Attributes = permissions;
-            }
-            else
-            {
-                throw new ArgumentException();
-            }
         }
     }
 
@@ -79,7 +71,7 @@
         /// </summary>
         /// <value></value>
         [JsonPropertyName("attributes")]
-        public dynamic Attributes { get; set; }
+        public TeamWorkspacePermissions Attributes { get; set; }
     }
 
     /// <summary>

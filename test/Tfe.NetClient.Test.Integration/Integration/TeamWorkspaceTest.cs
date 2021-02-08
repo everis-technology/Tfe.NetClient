@@ -2,6 +2,7 @@
 {
     using System;
     using System.Net.Http;
+    using System.Text.Json;
     using System.Threading.Tasks;
     using Microsoft.Extensions.Configuration;
     using Tfe.NetClient.TeamWorkspaces;
@@ -66,7 +67,8 @@
 
             var (client, workspace) = await SetupTestWorkspace();
 
-            var permissions = new TeamWorkspaceCustomPermissions();
+            var permissions = new TeamWorkspacePermissions();
+            permissions.Access = AccessPermissions.Custom;
             permissions.Runs = RunPermissions.Plan;
             permissions.Variables = VariablesPermissions.Write;
 
@@ -106,7 +108,8 @@
             var create = await client.TeamWorkspace.CreateAsync(request);
 
 
-            var newPermissions = new TeamWorkspaceCustomPermissions();
+            var newPermissions = new TeamWorkspacePermissions();
+            permissions.Access = AccessPermissions.Custom;
             newPermissions.Runs = RunPermissions.Plan;
             newPermissions.Variables = VariablesPermissions.Write;
             newPermissions.WorkspaceLocking = true;
@@ -121,19 +124,40 @@
         }
 
         [Fact]
-        public void RequestOnlyAcceptsPermissionObjects()
+        public void RequestAttributesAreSerializedCorrectly()
         {
-            void stringPerms() => new Request(tid, tid, "not permissions");
-            Assert.Throws<ArgumentException>(stringPerms);
+            var customPermissionJson = "{\"data\":{\"attributes\":{\"access\":\"custom\",\"runs\":\"plan\",\"variables\":\"write\",\"state-versions\":\"read-outputs\",\"sentinel-mocks\":\"read\",\"workspace-locking\":true}}}";
+            var standardPermissionJson = "{\"data\":{\"attributes\":{\"access\":\"admin\"}}}";
 
-            void urPerms() => new Request(tid, tid, new UpdateRequest());
-            Assert.Throws<ArgumentException>(urPerms);
+            var custom = new UpdateRequest();
+            custom.Data.Attributes = new TeamWorkspacePermissions
+            {
+                Access = AccessPermissions.Custom,
+                Runs = RunPermissions.Plan,
+                Variables = VariablesPermissions.Write,
+                StateVersions = StateVersionsPermissions.ReadOutputs,
+                SentinelMocks = SentinelMocksPermissions.Read,
+                WorkspaceLocking = true,
+            };
 
-            var custom = new Request(tid, tid, new TeamWorkspaceCustomPermissions());
             Assert.Equal("custom", custom.Data.Attributes.Access);
+            Assert.Equal("plan", custom.Data.Attributes.Runs);
+            Assert.Equal("write", custom.Data.Attributes.Variables);
+            Assert.Equal("read-outputs", custom.Data.Attributes.StateVersions);
+            Assert.Equal("read", custom.Data.Attributes.SentinelMocks);
+            Assert.True(custom.Data.Attributes.WorkspaceLocking);
+            Assert.Equal(customPermissionJson, JsonSerializer.Serialize(custom));
 
-            var admin = new Request(tid, tid, new TeamWorkspaceCustomPermissions { Access = AccessPermissions.Admin });
+
+            var admin = new UpdateRequest();
+            admin.Data.Attributes = new TeamWorkspacePermissions { Access = AccessPermissions.Admin };
+
             Assert.Equal("admin", admin.Data.Attributes.Access);
+            Assert.Null(admin.Data.Attributes.Runs);
+            Assert.Null(admin.Data.Attributes.Variables);
+            Assert.Null(admin.Data.Attributes.StateVersions);
+            Assert.Null(admin.Data.Attributes.SentinelMocks);
+            Assert.Equal(standardPermissionJson, JsonSerializer.Serialize(admin));
         }
     }
 }

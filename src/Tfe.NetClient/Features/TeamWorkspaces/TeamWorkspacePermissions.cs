@@ -1,8 +1,7 @@
-﻿using System;
-using System.Text.Json.Serialization;
-
-namespace Tfe.NetClient.TeamWorkspaces
+﻿namespace Tfe.NetClient.TeamWorkspaces
 {
+    using System.Text.Json.Serialization;
+
     /// <summary>
     /// AccessPermissions
     /// </summary>
@@ -65,7 +64,7 @@ namespace Tfe.NetClient.TeamWorkspaces
     /// TeamWorkspacePermissions
     /// </summary>
     /// <value></value>
-    public class TeamWorkspacePermissions 
+    public class TeamWorkspacePermissions
     {
         /// <summary>
         /// TeamWorkspacePermissions
@@ -81,56 +80,67 @@ namespace Tfe.NetClient.TeamWorkspaces
         /// <value></value>
         [JsonPropertyName("access")]
         public string Access { get; set; }
-    }
 
-    /// <summary>
-    /// TeamWorkspaceCustomPermissions
-    /// </summary>
-    /// <value></value>
-    public class TeamWorkspaceCustomPermissions : TeamWorkspacePermissions
-    {
-        /// <summary>
-        /// TeamWorkspaceCustomPermissions
-        /// </summary>
-        /// <value></value>
-        public TeamWorkspaceCustomPermissions()
-        {
-            Access = AccessPermissions.Custom;
-        }
 
+        private string _runs;
+        private string _variables;
+        private string _stateVersions;
+        private string _sentinelMocks;
+
+#nullable enable
         /// <summary>
         /// Runs
         /// </summary>
         /// <value></value>
         [JsonPropertyName("runs")]
-        public string Runs { get; set; }
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string Runs { get => GetSuitablePermission(_runs); set => _runs = value; }
 
         /// <summary>
         /// Variables
         /// </summary>
         /// <value></value>
         [JsonPropertyName("variables")]
-        public string Variables { get; set; }
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string Variables { get => GetSuitablePermission(_variables); set => _variables = value; }
 
         /// <summary>
         /// StateVersions
         /// </summary>
         /// <value></value>
         [JsonPropertyName("state-versions")]
-        public string StateVersions { get; set; }
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string StateVersions { get => GetSuitablePermission(_stateVersions); set => _stateVersions = value; }
 
         /// <summary>
         /// SentinelMocks
         /// </summary>
         /// <value></value>
         [JsonPropertyName("sentinel-mocks")]
-        public string SentinelMocks { get; set; }
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string SentinelMocks { get => GetSuitablePermission(_sentinelMocks); set => _sentinelMocks = value; }
+#nullable disable
 
         /// <summary>
         /// WorkspaceLocking
         /// </summary>
         /// <value></value>
         [JsonPropertyName("workspace-locking")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public bool WorkspaceLocking { get; set; }
+
+        private string GetSuitablePermission(string propertyValue)
+        {
+            if (Access == AccessPermissions.Custom)
+            {
+                return propertyValue;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }
+
+
