@@ -13,5 +13,5 @@ https://app.quicktype.io/?l=csharp
 | [x]          | /organizations/{org}/workspaces                  | POST      | create workspace                            |
 | []          | /organizations/{org}/teams                       | GET       | query TFE team                              |
 | []          | /organizations/{org}/teams                       | POST      | create TFE team                             |
-| []          | /team-workspaces                                 | POST      | assign team with workspace with level       |
+| [x]          | /team-workspaces                                 | POST      | assign team with workspace with level       |
 | [x]          | /vars                                            | POST      | attach a value to a workspace (like tfvars) |
