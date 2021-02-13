@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{DA7E9FD9-0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tfe.NetClient.Test.Integration", "test\Tfe.NetClient.Test.Integration\Tfe.NetClient.Test.Integration.csproj", "{0F5AF8BB-25F3-4CF3-B223-34944AB9A873}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tfe.NetClient.Test", "test\Tfe.NetClient.Test\Tfe.NetClient.Test.csproj", "{14A8EACC-20BE-43E2-8466-516CEBC2555A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,9 +50,22 @@ Global
 		{0F5AF8BB-25F3-4CF3-B223-34944AB9A873}.Release|x64.Build.0 = Release|Any CPU
 		{0F5AF8BB-25F3-4CF3-B223-34944AB9A873}.Release|x86.ActiveCfg = Release|Any CPU
 		{0F5AF8BB-25F3-4CF3-B223-34944AB9A873}.Release|x86.Build.0 = Release|Any CPU
+		{14A8EACC-20BE-43E2-8466-516CEBC2555A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14A8EACC-20BE-43E2-8466-516CEBC2555A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14A8EACC-20BE-43E2-8466-516CEBC2555A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{14A8EACC-20BE-43E2-8466-516CEBC2555A}.Debug|x64.Build.0 = Debug|Any CPU
+		{14A8EACC-20BE-43E2-8466-516CEBC2555A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{14A8EACC-20BE-43E2-8466-516CEBC2555A}.Debug|x86.Build.0 = Debug|Any CPU
+		{14A8EACC-20BE-43E2-8466-516CEBC2555A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14A8EACC-20BE-43E2-8466-516CEBC2555A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14A8EACC-20BE-43E2-8466-516CEBC2555A}.Release|x64.ActiveCfg = Release|Any CPU
+		{14A8EACC-20BE-43E2-8466-516CEBC2555A}.Release|x64.Build.0 = Release|Any CPU
+		{14A8EACC-20BE-43E2-8466-516CEBC2555A}.Release|x86.ActiveCfg = Release|Any CPU
+		{14A8EACC-20BE-43E2-8466-516CEBC2555A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DAB0AFE5-5FD2-462C-8FC3-651589680B16} = {B54D87E8-8F55-474F-9D58-52188195CDA7}
 		{0F5AF8BB-25F3-4CF3-B223-34944AB9A873} = {DA7E9FD9-0F8F-4518-8F4A-A9E459AC9DEE}
+		{14A8EACC-20BE-43E2-8466-516CEBC2555A} = {DA7E9FD9-0F8F-4518-8F4A-A9E459AC9DEE}
 	EndGlobalSection
 EndGlobal
