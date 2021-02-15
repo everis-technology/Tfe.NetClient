@@ -1,0 +1,50 @@
+{
+    "data": {
+        "attributes": {
+            "auto-apply": false,
+            "allow-destroy-plan": false,
+            "can-queue-destroy-plan": false,
+            "created-at": "2017-11-02T23:23:53.765Z",
+            "description": null,
+            "environment": "default",
+            "file-triggers-enabled": true,
+            "locked": true,
+            "name": "workspace-2",
+            "permissions": {
+                "can-destroy": true,
+                "can-lock": true,
+                "can-queue-destroy": true,
+                "can-queue-run": true,
+                "can-read-settings": true,
+                "can-update": true,
+                "can-update-variable": true
+            },
+            "queue-all-runs": false,
+            "source": "tfe-ui",
+            "source-name": null,
+            "source-url": null,
+            "terraform-version": "0.10.8",
+            "trigger-prefixes": [],
+            "vcs-repo": {
+                "branch": "",
+                "identifier": "my-organization/my-repository",
+                "ingress-submodules": false,
+                "oauth-token-id": "ot-hmAyP66qk2AMVdbJ"
+            },
+            "working-directory": null
+        },
+        "id": "ws-SihZTyXKfNXUWuUa",
+        "relationships": {
+            "locked-by": {
+                "data": {
+                    "id": "my-user",
+                    "type": "users"
+                },
+                "links": {
+                    "related": "/api/v2/users/my-user"
+                }
+            }
+        },
+        "type": "workspaces"
+    }
+}

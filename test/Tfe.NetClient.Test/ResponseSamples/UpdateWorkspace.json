@@ -1,0 +1,47 @@
+{
+    "data": {
+        "id": "ws-SihZTyXKfNXUWuUa",
+        "type": "workspaces",
+        "attributes": {
+            "auto-apply": false,
+            "allow-destroy-plan": false,
+            "can-queue-destroy-plan": false,
+            "created-at": "2017-11-02T23:24:05.997Z",
+            "description": null,
+            "environment": "default",
+            "file-triggers-enabled": true,
+            "locked": false,
+            "name": "workspace-2",
+            "queue-all-runs": false,
+            "source": "tfe-ui",
+            "source-name": null,
+            "source-url": null,
+            "terraform-version": "0.10.8",
+            "trigger-prefixes": [],
+            "vcs-repo": {
+                "identifier": "skierkowski/terraform-test-proj",
+                "branch": "",
+                "ingress-submodules": false,
+                "oauth-token-id": "ot-hmAyP66qk2AMVdbJ"
+            },
+            "working-directory": ""
+        },
+        "relationships": {
+            "organization": {
+                "data": {
+                    "id": "my-organization",
+                    "type": "organizations"
+                }
+            },
+            "ssh-key": {
+                "data": null
+            },
+            "latest-run": {
+                "data": null
+            }
+        },
+        "links": {
+            "self": "/api/v2/organizations/my-organization/workspaces/workspace-2"
+        }
+    }
+}
