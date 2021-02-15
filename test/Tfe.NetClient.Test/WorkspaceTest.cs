@@ -4,13 +4,17 @@ namespace Tfe.NetClient
     using System.Net.Http;
     using Tfe.NetClient.Workspaces;
     using System.Threading.Tasks;
-    using System;
+    using Microsoft.Extensions.FileProviders;
+    using System.Reflection;
+    using System.IO;
 
     /// <summary>
     /// WorkspaceTest
     /// </summary>
     public class WorkspaceTest
     {
+        EmbeddedFileProvider embeddedProvider = new EmbeddedFileProvider(Assembly.GetExecutingAssembly());
+
         /// <summary>
         /// CreateWorkspaceworkspace-2
         /// </summary>
@@ -18,27 +22,13 @@ namespace Tfe.NetClient
         [Fact]
         public async Task CreateWorkspace()
         {
-            var workspaceName = "workspace-2";
+            var workspaceName = "workspace-1";
 
             var httpClient = new TestHttpClient()
             {
                 Handler = (entry) =>
                    {
-                       var jsonResult = @"{
-    ""data"": {
-        ""attributes"": {
-            ""name"": ""workspace-2"",
-            ""terraform_version"": ""0.11.1"",
-            ""working-directory"": """",
-            ""vcs-repo"": {
-                ""identifier"": ""skierkowski/terraform-test-proj"",
-                ""oauth-token-id"": ""ot-hmAyP66qk2AMVdbJ"",
-                ""branch"": """"
-            }
-    },
-    ""type"": ""workspaces""
-    }
-}";
+                       var jsonResult = GetSampleResponse("CreateWorkspaceWithoutVCS");
                        SendResponse(jsonResult, entry);
                    }
             };
@@ -66,6 +56,18 @@ namespace Tfe.NetClient
             };
 
             entry.Completion.SetResult(response);
+        }
+
+        private string GetSampleResponse(string responseFile)
+        {
+            var file = $"ResponseSamples/{responseFile}.json";
+            using (var stream = embeddedProvider.GetFileInfo(file).CreateReadStream())
+            {
+                using (var reader = new StreamReader(stream))
+                {
+                    return reader.ReadToEnd();
+                }
+            }
         }
     }
 }
