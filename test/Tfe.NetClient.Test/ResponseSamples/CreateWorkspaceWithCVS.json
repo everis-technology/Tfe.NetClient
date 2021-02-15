@@ -1,0 +1,63 @@
+{
+  "data": {
+    "id": "ws-SihZTyXKfNXUWuUa",
+    "type": "workspaces",
+    "attributes": {
+      "auto-apply": false,
+      "allow-destroy-plan": false,
+      "can-queue-destroy-plan": true,
+      "created-at": "2017-11-02T23:55:16.142Z",
+      "description": null,
+      "environment": "default",
+      "file-triggers-enabled": true,
+      "locked": false,
+      "name": "workspace-2",
+      "permissions": {
+        "can-update": true,
+        "can-destroy": false,
+        "can-queue-destroy": false,
+        "can-queue-run": false,
+        "can-update-variable": false,
+        "can-lock": false,
+        "can-read-settings": true
+      },
+      "queue-all-runs": false,
+      "source": "tfe-ui",
+      "source-name": null,
+      "source-url": null,
+      "terraform-version": "0.10.8",
+      "trigger-prefixes": [],
+      "vcs-repo": {
+        "identifier": "skierkowski/terraform-test-proj",
+        "branch": "",
+        "oauth-token-id": "ot-hmAyP66qk2AMVdbJ",
+        "ingress-submodules": false
+      },
+      "working-directory": null,
+      "execution-mode": "agent"
+    },
+    "relationships": {
+      "organization": {
+        "data": {
+          "id": "my-organization",
+          "type": "organizations"
+        }
+      },
+      "ssh-key": {
+        "data": null
+      },
+      "latest-run": {
+        "data": null
+      },
+      "agent-pool": {
+        "data": {
+          "id": "apool-ZjT6A7mVFm5WHT5a",
+          "type": "agent-pools"
+        }
+      }
+    },
+    "links": {
+      "self": "/api/v2/organizations/my-organization/workspaces/workspace-2"
+    }
+  }
+}

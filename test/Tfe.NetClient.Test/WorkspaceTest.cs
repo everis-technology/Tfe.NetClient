@@ -16,11 +16,11 @@ namespace Tfe.NetClient
         EmbeddedFileProvider embeddedProvider = new EmbeddedFileProvider(Assembly.GetExecutingAssembly());
 
         /// <summary>
-        /// CreateWorkspaceworkspace-2
+        /// Create_Workspace_Without_VCS
         /// </summary>
         /// <returns></returns>
         [Fact]
-        public async Task CreateWorkspace()
+        public async Task Create_Workspace_Without_VCS()
         {
             var workspaceName = "workspace-1";
 
@@ -28,8 +28,7 @@ namespace Tfe.NetClient
             {
                 Handler = (entry) =>
                    {
-                       var jsonResult = GetSampleResponse("CreateWorkspaceWithoutVCS");
-                       SendResponse(jsonResult, entry);
+                       SendResponse("CreateWorkspaceWithoutVCS", entry);
                    }
             };
 
@@ -45,27 +44,55 @@ namespace Tfe.NetClient
             Assert.Equal(workspaceName, result.Data.Attributes.Name);
         }
 
-        private void SendResponse(string body, TestHttpClient.Entry entry)
+        /// <summary>
+        /// Create_Workspace_With_VCS
+        /// </summary>
+        /// <returns></returns>
+        [Fact]
+        public async Task Create_Workspace_With_VCS()
         {
-            var response = new HttpResponseMessage
+            var workspaceName = "workspace-2";
+
+            var httpClient = new TestHttpClient()
             {
-                StatusCode = System.Net.HttpStatusCode.OK,
-                Content = new StringContent(
-                                body, System.Text.Encoding.UTF8,
-                                "application/json"),
+                Handler = (entry) =>
+                   {
+                       SendResponse("CreateWorkspaceWithCVS", entry);
+                   }
             };
 
-            entry.Completion.SetResult(response);
+            var config = new TfeConfig("faketoken", httpClient);
+
+            var client = new TfeClient(config);
+
+            var request = new WorkspacesRequest();
+            request.Data.Attributes.Name = workspaceName;
+
+            var result = await client.Workspace.CreateAsync("organizationName", request);
+            Assert.NotNull(result);
+            Assert.Equal(workspaceName, result.Data.Attributes.Name);
+            Assert.Equal("skierkowski/terraform-test-proj", result.Data.Attributes.VcsRepo.Identifier);
+            Assert.Equal("ot-hmAyP66qk2AMVdbJ", result.Data.Attributes.VcsRepo.OauthTokenId);
         }
 
-        private string GetSampleResponse(string responseFile)
+        private void SendResponse(string responseFile, TestHttpClient.Entry entry)
         {
             var file = $"ResponseSamples/{responseFile}.json";
             using (var stream = embeddedProvider.GetFileInfo(file).CreateReadStream())
             {
                 using (var reader = new StreamReader(stream))
                 {
-                    return reader.ReadToEnd();
+                    var body = reader.ReadToEnd();
+
+                    var response = new HttpResponseMessage
+                    {
+                        StatusCode = System.Net.HttpStatusCode.OK,
+                        Content = new StringContent(
+                               body, System.Text.Encoding.UTF8,
+                               "application/json"),
+                    };
+
+                    entry.Completion.SetResult(response);
                 }
             }
         }
