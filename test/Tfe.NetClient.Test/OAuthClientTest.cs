@@ -102,7 +102,7 @@ namespace Tfe.NetClient
             var organizationName = "my-organization";
             var result = await client.OAuthClient.ListAsync(organizationName);
             Assert.NotNull(result);
-            Assert.Equal(1, result.Data.Count());
+            Assert.Single(result.Data);
             Assert.Equal("oc-XKFwG6ggfA9n7t1K", result.Data[0].Id);
             Assert.Equal(organizationName, result.Data[0].Relationships.Organization.Data.Id);
         }
