@@ -4,6 +4,13 @@
 
 Tfe.NetClient is a .NET Client for Terraform Enterprise.
 
+## Features
+
+> Terraform Cloud API Documentation can be found [here](https://www.terraform.io/docs/cloud/api/index.html).
+
+* [Workspaces](src/Tfe.NetClient/Features/Workspaces/README.md)
+* [OAutClient](src/Tfe.NetClient/Features/OAutClient/README.md)
+
 ## Basic usage
 
 ### Add the package to your project
