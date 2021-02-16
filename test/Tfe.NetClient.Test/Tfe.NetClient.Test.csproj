@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="ResponseSamples\*.json" />
+    <EmbeddedResource Include="ResponseSamples\**\*.json" />
   </ItemGroup>
 
 </Project>

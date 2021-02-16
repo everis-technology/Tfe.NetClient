@@ -8,16 +8,21 @@ namespace Tfe.NetClient
 {
     using System;
     using System.Collections.Concurrent;
+    using System.IO;
     using System.Net;
     using System.Net.Http;
     using System.Net.Http.Headers;
+    using System.Reflection;
     using System.Text.Json;
     using System.Threading;
     using System.Threading.Tasks;
+    using Microsoft.Extensions.FileProviders;
 
     // This client will capture all requests, and put them in .Requests for you to inspect.
     public class TestHttpClient : HttpClient
     {
+        static EmbeddedFileProvider embeddedProvider = new EmbeddedFileProvider(Assembly.GetExecutingAssembly());
+
         private readonly TestHttpClientHandler handler;
 
         public TestHttpClient()
@@ -101,6 +106,28 @@ namespace Tfe.NetClient
                 using (cancellationToken.Register(() => entry.Completion.TrySetCanceled()))
                 {
                     return await entry.Completion.Task.ConfigureAwait(false);
+                }
+            }
+        }
+
+        static public void SendResponse(string responseFile, TestHttpClient.Entry entry)
+        {
+            var file = $"ResponseSamples/{responseFile}.json";
+            using (var stream = embeddedProvider.GetFileInfo(file).CreateReadStream())
+            {
+                using (var reader = new StreamReader(stream))
+                {
+                    var body = reader.ReadToEnd();
+
+                    var response = new HttpResponseMessage
+                    {
+                        StatusCode = System.Net.HttpStatusCode.OK,
+                        Content = new StringContent(
+                               body, System.Text.Encoding.UTF8,
+                               "application/json"),
+                    };
+
+                    entry.Completion.SetResult(response);
                 }
             }
         }

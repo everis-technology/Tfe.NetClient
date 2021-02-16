@@ -1,12 +1,8 @@
 namespace Tfe.NetClient
 {
     using Xunit;
-    using System.Net.Http;
     using Tfe.NetClient.Workspaces;
     using System.Threading.Tasks;
-    using Microsoft.Extensions.FileProviders;
-    using System.Reflection;
-    using System.IO;
     using System.Linq;
 
     /// <summary>
@@ -14,8 +10,6 @@ namespace Tfe.NetClient
     /// </summary>
     public class WorkspaceTest
     {
-        EmbeddedFileProvider embeddedProvider = new EmbeddedFileProvider(Assembly.GetExecutingAssembly());
-
         /// <summary>
         /// Create_Workspace_Without_VCS
         /// </summary>
@@ -29,7 +23,7 @@ namespace Tfe.NetClient
             {
                 Handler = (entry) =>
                    {
-                       SendResponse("CreateWorkspaceWithoutVCS", entry);
+                       TestHttpClient.SendResponse("Workspace/CreateWorkspaceWithoutVCS", entry);
                    }
             };
 
@@ -58,7 +52,7 @@ namespace Tfe.NetClient
             {
                 Handler = (entry) =>
                    {
-                       SendResponse("CreateWorkspaceWithCVS", entry);
+                       TestHttpClient.SendResponse("Workspace/CreateWorkspaceWithCVS", entry);
                    }
             };
 
@@ -89,7 +83,7 @@ namespace Tfe.NetClient
             {
                 Handler = (entry) =>
                    {
-                       SendResponse("UpdateWorkspace", entry);
+                       TestHttpClient.SendResponse("Workspace/UpdateWorkspace", entry);
                    }
             };
 
@@ -120,7 +114,7 @@ namespace Tfe.NetClient
             {
                 Handler = (entry) =>
                    {
-                       SendResponse("ListWorkspace", entry);
+                       TestHttpClient.SendResponse("Workspace/ListWorkspace", entry);
                    }
             };
 
@@ -147,7 +141,7 @@ namespace Tfe.NetClient
             {
                 Handler = (entry) =>
                    {
-                       SendResponse("ShowWorkspace", entry);
+                       TestHttpClient.SendResponse("Workspace/ShowWorkspace", entry);
                    }
             };
 
@@ -173,7 +167,7 @@ namespace Tfe.NetClient
             {
                 Handler = (entry) =>
                    {
-                       SendResponse("AssignSSHKeyToWorkspace", entry);
+                       TestHttpClient.SendResponse("Workspace/AssignSSHKeyToWorkspace", entry);
                    }
             };
 
@@ -188,28 +182,6 @@ namespace Tfe.NetClient
             Assert.NotNull(result);
             Assert.Equal(workspaceId, result.Data.Id);
             Assert.Equal(request.Data.Attributes.Id, result.Data.Relationships.SshKey.Data.Id);
-        }
-
-        private void SendResponse(string responseFile, TestHttpClient.Entry entry)
-        {
-            var file = $"ResponseSamples/{responseFile}.json";
-            using (var stream = embeddedProvider.GetFileInfo(file).CreateReadStream())
-            {
-                using (var reader = new StreamReader(stream))
-                {
-                    var body = reader.ReadToEnd();
-
-                    var response = new HttpResponseMessage
-                    {
-                        StatusCode = System.Net.HttpStatusCode.OK,
-                        Content = new StringContent(
-                               body, System.Text.Encoding.UTF8,
-                               "application/json"),
-                    };
-
-                    entry.Completion.SetResult(response);
-                }
-            }
         }
     }
 }
