@@ -2,6 +2,7 @@ namespace Tfe.NetClient.Workspaces
 {
     using System;
     using System.Text.Json.Serialization;
+    using Tfe.NetClient.TeamWorkspaces;
 
     /// <summary>
     /// Relationships
@@ -27,14 +28,42 @@ namespace Tfe.NetClient.Workspaces
         /// </summary>
         /// <value></value>
         [JsonPropertyName("latest-run")]
-        public SimpleDatam LatestRun { get; set; }
+        public Relationship LatestRun { get; set; }
 
         /// <summary>
         /// CurrentStateVersion
         /// </summary>
         /// <value></value>
         [JsonPropertyName("current-state-version")]
-        public SimpleDatam CurrentStateVersion { get; set; }
+        public Relationship CurrentStateVersion { get; set; }
+
+        /// <summary>
+        /// CurrentConfigurationVersion
+        /// </summary>
+        /// <value></value>
+        [JsonPropertyName("current-configuration-version")]
+        public Relationship CurrentConfigurationVersion { get; set; }
+
+        /// <summary>
+        /// CurrentRun
+        /// </summary>
+        /// <value></value>
+        [JsonPropertyName("current-run")]
+        public Relationship CurrentRun { get; set; }
+
+        /// <summary>
+        /// AgentPool
+        /// </summary>
+        /// <value></value>
+        [JsonPropertyName("agent-pool")]
+        public Relationship AgentPool { get; set; }
+
+        /// <summary>
+        /// Readme
+        /// </summary>
+        /// <value></value>
+        [JsonPropertyName("readme")]
+        public Relationship Readme { get; set; }
     }
 
     /// <summary>
