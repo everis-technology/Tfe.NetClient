@@ -128,7 +128,7 @@ namespace Tfe.NetClient
             Assert.Equal(3, result.Data.Count());
             Assert.Equal(workspaceName, result.Data[0].Attributes.Name);
 
-            Relationships relationships = result.Data[2].Relationships;
+            Workspaces.Relationships relationships = result.Data[2].Relationships;
 
             Relationship latestRun = relationships.LatestRun;
             Assert.Equal("run-1234567890abcdef", latestRun.RelationshipData.Id);
