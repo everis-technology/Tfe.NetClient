@@ -1,0 +1,40 @@
+{
+  "data": {
+    "id": "plan-1234567890abcdef",
+    "type": "plans",
+    "attributes": {
+      "has-changes": true,
+      "status": "finished",
+      "status-timestamps": {
+        "started-at": "2021-02-24T07:50:16+00:00",
+        "finished-at": "2021-02-24T07:50:32+00:00",
+        "managed-queued-at": "2021-02-24T07:50:15+00:00"
+      },
+      "log-read-url": "https://archivist.terraform.io/v1/object/1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
+      "resource-additions": 4,
+      "resource-changes": 1,
+      "resource-destructions": 0,
+      "actions": {
+        "is-exportable": true
+      },
+      "execution-details": {
+        "mode": "remote"
+      },
+      "permissions": {
+        "can-export": true
+      }
+    },
+    "relationships": {
+      "state-versions": {
+        "data": []
+      },
+      "exports": {
+        "data": []
+      }
+    },
+    "links": {
+      "self": "/api/v2/plans/plan-1234567890abcdef",
+      "json-output": "/api/v2/plans/plan-1234567890abcdef/json-output"
+    }
+  }
+}
