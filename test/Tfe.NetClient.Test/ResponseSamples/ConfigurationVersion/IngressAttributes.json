@@ -1,0 +1,39 @@
+{
+  "data": {
+    "id": "ia-1234567890abcdef",
+    "type": "ingress-attributes",
+    "attributes": {
+      "branch": "master",
+      "clone-url": "https://github.com/my-organization/my-workspace.git",
+      "commit-message": "Commit message",
+      "commit-sha": "734713bc047d87bf7eac9674765ae793478c50d3",
+      "commit-url": "https://github.com/my-organization/my-workspace/commit/734713bc047d87bf7eac9674765ae793478c50d3",
+      "compare-url": "https://github.com/my-organization/my-workspace/compare/d921970aadf0...734713bc047d",
+      "identifier": "my-organization/my-workspace",
+      "is-pull-request": false,
+      "on-default-branch": true,
+      "pull-request-number": null,
+      "pull-request-url": null,
+      "pull-request-title": null,
+      "pull-request-body": null,
+      "tag": null,
+      "sender-username": "github_username",
+      "sender-avatar-url": "https://avatars.githubusercontent.com/u/1234567890?v=123",
+      "sender-html-url": "https://github.com/github_username"
+    },
+    "relationships": {
+      "created-by": {
+        "data": {
+          "id": "user-1234567890abcdef",
+          "type": "users"
+        },
+        "links": {
+          "related": "/api/v2/ingress-attributes/ia-1234567890abcdef/created-by"
+        }
+      }
+    },
+    "links": {
+      "self": "/api/v2/ingress-attributes/ia-1234567890abcdef"
+    }
+  }
+}

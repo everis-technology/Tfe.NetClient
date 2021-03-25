@@ -1,3 +1,5 @@
+using Tfe.NetClient.Features.ConfigurationVersions;
+
 namespace Tfe.NetClient
 {
     using System.Net.Http;
@@ -40,6 +42,7 @@ namespace Tfe.NetClient
             StateVersion = new StateVersion(client);
             StateVersionOutput = new StateVersionOutput(client);
             TeamWorkspace = new TeamWorkspace(client);
+            ConfigurationVersion = new ConfigurationVersion(client);
         }
 
 
@@ -48,6 +51,12 @@ namespace Tfe.NetClient
         /// </summary>
         /// <value></value>
         public Apply Apply { get; }
+
+        /// <summary>
+        /// Applies
+        /// </summary>
+        /// <value></value>
+        public ConfigurationVersion ConfigurationVersion { get; }
 
         /// <summary>
         /// Organization
