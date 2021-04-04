@@ -7,7 +7,7 @@ namespace Tfe.NetClient.Runs
     /// Run
     /// </summary>
     public class Run : BaseClient
-    {   
+    {
         /// <summary>
         /// Run
         /// </summary>
@@ -38,7 +38,7 @@ namespace Tfe.NetClient.Runs
         {
             await PostAsync<CommentRequest>($"runs/{runId}/actions/apply", request).ConfigureAwait(false);
         }
-        
+
         /// <summary>
         /// ListAsync
         /// </summary>

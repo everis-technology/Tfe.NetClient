@@ -26,7 +26,7 @@ namespace Tfe.NetClient.Organizations
         /// <value></value>
         [JsonPropertyName("type")]
         public string Type { get; set; }
-        
+
         /// <summary>
         /// Attributes
         /// </summary>

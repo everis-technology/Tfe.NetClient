@@ -2,7 +2,7 @@ namespace Tfe.NetClient.Applies
 {
     using System;
     using System.Text.Json.Serialization;
-    
+
     /// <summary>
     /// ApplyResponse
     /// </summary>

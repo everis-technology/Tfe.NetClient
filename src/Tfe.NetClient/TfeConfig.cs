@@ -2,12 +2,12 @@ namespace Tfe.NetClient
 {
     using System.Net.Http;
     using System.Net.Http.Headers;
-    
+
     /// <summary>
     /// TfeConfig
     /// </summary>
     public class TfeConfig
-    {   
+    {
         /// <summary>
         /// TfeConfig
         /// </summary>

@@ -192,7 +192,7 @@ namespace Tfe.NetClient.Organizations
         /// <value></value>
         [JsonPropertyName("can-traverse")]
         public bool CanTraverse { get; set; }
-        
+
         /// <summary>
         /// CanCreateWorkspaceMigration
         /// </summary>

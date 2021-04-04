@@ -102,7 +102,7 @@ namespace Tfe.NetClient.StateVersions
     /// AttributesResponse
     /// </summary>
     public class AttributesResponse
-    {   
+    {
         /// <summary>
         /// VcsCommitSha
         /// </summary>
@@ -231,7 +231,7 @@ namespace Tfe.NetClient.StateVersions
         [JsonPropertyName("related")]
         public string Related { get; set; }
     }
-    
+
     /// <summary>
     /// Outputs
     /// </summary>

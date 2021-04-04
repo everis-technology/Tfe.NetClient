@@ -61,7 +61,7 @@ namespace Tfe.NetClient.StateVersionOutputs
         /// <value></value>
         [JsonPropertyName("name")]
         public string Name { get; set; }
-        
+
         /// <summary>
         /// Sensitive
         /// </summary>
@@ -88,7 +88,7 @@ namespace Tfe.NetClient.StateVersionOutputs
     /// Links
     /// </summary>
     public partial class Links
-    {   
+    {
         /// <summary>
         /// Self
         /// </summary>

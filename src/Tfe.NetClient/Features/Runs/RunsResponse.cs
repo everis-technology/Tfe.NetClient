@@ -151,14 +151,14 @@ namespace Tfe.NetClient.Runs
         /// <value></value>
         [JsonPropertyName("trigger-reason")]
         public string TriggerReason { get; set; }
-        
+
         /// <summary>
         /// TargetAddrs
         /// </summary>
         /// <value></value>
         [JsonPropertyName("target-addrs")]
         public object TargetAddrs { get; set; }
-        
+
         /// <summary>
         /// Permissions
         /// </summary>
@@ -205,7 +205,7 @@ namespace Tfe.NetClient.Runs
     /// Permissions
     /// </summary>
     public class Permissions
-    {   
+    {
         /// <summary>
         /// CanApply
         /// </summary>
@@ -240,14 +240,14 @@ namespace Tfe.NetClient.Runs
         /// <value></value>
         [JsonPropertyName("can-force-execute")]
         public bool CanForceExecute { get; set; }
-        
+
         /// <summary>
         /// CanForceCancel
         /// </summary>
         /// <value></value>
         [JsonPropertyName("can-force-cancel")]
         public bool CanForceCancel { get; set; }
-        
+
         /// <summary>
         /// CanOverridePolicyCheck
         /// </summary>
@@ -321,7 +321,7 @@ namespace Tfe.NetClient.Runs
         /// <value></value>
         [JsonPropertyName("run-events")]
         public Comments RunEvents { get; set; }
-        
+
         /// <summary>
         /// PolicyChecks
         /// </summary>
@@ -381,7 +381,7 @@ namespace Tfe.NetClient.Runs
     /// ApplyLinks
     /// </summary>
     public class ApplyLinks
-    {   
+    {
         /// <summary>
         /// Related
         /// </summary>

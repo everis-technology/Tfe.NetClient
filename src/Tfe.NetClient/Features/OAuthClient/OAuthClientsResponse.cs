@@ -43,7 +43,7 @@ namespace Tfe.NetClient.OAuthClients
         /// </summary>
         [JsonPropertyName("type")]
         public string Type { get; set; }
-        
+
         /// <summary>
         /// Attributes
         /// </summary>
@@ -103,13 +103,13 @@ namespace Tfe.NetClient.OAuthClients
         /// </summary>
         [JsonPropertyName("http-url")]
         public Uri HttpUrl { get; set; }
-        
+
         /// <summary>
         /// ApiUrl
         /// </summary>
         [JsonPropertyName("api-url")]
         public Uri ApiUrl { get; set; }
-        
+
         /// <summary>
         /// Key
         /// </summary>

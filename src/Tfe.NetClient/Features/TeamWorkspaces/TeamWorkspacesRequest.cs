@@ -52,11 +52,11 @@
         /// </summary>
         /// <value></value>
         public Request(string teamId, string workspaceId, TeamWorkspacePermissions permissions)
-        {            
-                this.Data = new RequestData();
-                this.Data.Relationships.Team.RelationshipData.Id = teamId;
-                this.Data.Relationships.Workspace.RelationshipData.Id = workspaceId;
-                this.Data.Attributes = permissions;
+        {
+            this.Data = new RequestData();
+            this.Data.Relationships.Team.RelationshipData.Id = teamId;
+            this.Data.Relationships.Workspace.RelationshipData.Id = workspaceId;
+            this.Data.Attributes = permissions;
         }
     }
 

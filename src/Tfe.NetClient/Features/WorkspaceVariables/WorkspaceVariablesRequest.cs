@@ -6,7 +6,7 @@ namespace Tfe.NetClient.WorkspaceVariables
     /// WorkspaceVariablesRequest
     /// </summary>
     public class WorkspaceVariablesRequest
-    {   
+    {
         /// <summary>
         /// Data
         /// </summary>
@@ -25,7 +25,7 @@ namespace Tfe.NetClient.WorkspaceVariables
         /// </summary>
         [JsonPropertyName("type")]
         public string Type => "vars";
-        
+
         /// <summary>
         /// Attributes
         /// </summary>
@@ -38,7 +38,7 @@ namespace Tfe.NetClient.WorkspaceVariables
     /// RequestAttributes
     /// </summary>
     public class RequestAttributes
-    {   
+    {
         /// <summary>
         /// Key
         /// </summary>

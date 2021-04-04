@@ -26,7 +26,7 @@ namespace Tfe.NetClient
         public SshKeyTest(IntegrationTestFixture fixture)
         {
             this.configuration = fixture.Configuration;
-        }   
+        }
 
         /// <summary>
         /// CreateSshKey

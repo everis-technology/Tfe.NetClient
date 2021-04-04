@@ -79,7 +79,7 @@ namespace Tfe.NetClient.SshKeys
     /// Links
     /// </summary>
     public class Links
-    {   
+    {
         /// <summary>
         /// Self
         /// </summary>

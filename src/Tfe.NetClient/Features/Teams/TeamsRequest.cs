@@ -1,7 +1,7 @@
 namespace Tfe.NetClient.Teams
 {
     using System.Text.Json.Serialization;
-    
+
     /// <summary>
     /// TeamsRequest
     /// </summary>
