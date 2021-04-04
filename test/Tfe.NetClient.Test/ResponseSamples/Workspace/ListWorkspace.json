@@ -43,48 +43,171 @@
                 "self": "/api/v2/organizations/my-organization/workspaces/workspace-2"
             }
         },
-        {
-            "id": "ws-YnyXLq9fy38afEeb",
-            "type": "workspaces",
-            "attributes": {
-                "auto-apply": false,
-                "allow-destroy-plan": false,
-                "can-queue-destroy-plan": false,
-                "created-at": "2017-11-02T23:23:53.765Z",
-                "description": null,
-                "environment": "default",
-                "file-triggers-enabled": true,
-                "locked": false,
-                "name": "workspace-1",
-                "queue-all-runs": false,
-                "source": "tfe-ui",
-                "source-name": null,
-                "source-url": null,
-                "terraform-version": "0.10.8",
-                "trigger-prefixes": [],
-                "vcs-repo": {
-                    "branch": "",
-                    "ingress-submodules": false
-                },
-                "working-directory": ""
-            },
-            "relationships": {
-                "organization": {
-                    "data": {
-                        "id": "my-organization",
-                        "type": "organizations"
-                    }
-                },
-                "ssh-key": {
-                    "data": null
-                },
-                "latest-run": {
-                    "data": null
-                }
+      {
+        "id": "ws-YnyXLq9fy38afEeb",
+        "type": "workspaces",
+        "attributes": {
+          "auto-apply": false,
+          "allow-destroy-plan": false,
+          "can-queue-destroy-plan": false,
+          "created-at": "2017-11-02T23:23:53.765Z",
+          "description": null,
+          "environment": "default",
+          "file-triggers-enabled": true,
+          "locked": false,
+          "name": "workspace-1",
+          "queue-all-runs": false,
+          "source": "tfe-ui",
+          "source-name": null,
+          "source-url": null,
+          "terraform-version": "0.10.8",
+          "trigger-prefixes": [],
+          "vcs-repo": {
+            "branch": "",
+            "ingress-submodules": false
+          },
+          "working-directory": ""
+        },
+        "relationships": {
+          "organization": {
+            "data": {
+              "id": "my-organization",
+              "type": "organizations"
+            }
+          },
+          "ssh-key": {
+            "data": null
+          },
+          "latest-run": {
+            "data": null
+          }
+        },
+        "links": {
+          "self": "/api/v2/organizations/my-organization/workspaces/workspace-1"
+        }
+      },
+      {
+        "id": "ws-1234567890abcdef",
+        "type": "workspaces",
+        "attributes": {
+          "name": "workspace-3",
+          "auto-apply": false,
+          "created-at": "2020-10-19T13:46:12.079Z",
+          "environment": "default",
+          "locked": false,
+          "queue-all-runs": true,
+          "terraform-version": "0.13.4",
+          "working-directory": "terraform/work/dir",
+          "speculative-enabled": true,
+          "allow-destroy-plan": true,
+          "auto-destroy-at": null,
+          "updated-at": "2021-03-24T17:58:33.921Z",
+          "resource-count": 435,
+          "apply-duration-average": 67000,
+          "plan-duration-average": 66000,
+          "policy-check-failures": null,
+          "run-failures": 10,
+          "workspace-kpis-runs-count": 30,
+          "latest-change-at": "2021-03-24T17:58:32.566Z",
+          "operations": true,
+          "execution-mode": "remote",
+          "vcs-repo": {
+            "branch": "dev",
+            "ingress-submodules": false,
+            "identifier": "my-organization/my-repository",
+            "display-identifier": "my-organization/my-repository",
+            "oauth-token-id": "ot-1234567890abcdef",
+            "webhook-url": "https://app.terraform.io/webhooks/vcs/00000000-0000-0000-0000-000000000000",
+            "repository-http-url": "https://github.com/my-organization/my-repository",
+            "service-provider": "github"
+          },
+          "vcs-repo-identifier": "my-organization/my-repository",
+          "permissions": {
+            "can-update": true,
+            "can-destroy": true,
+            "can-queue-destroy": true,
+            "can-queue-run": true,
+            "can-queue-apply": true,
+            "can-read-state-versions": true,
+            "can-create-state-versions": true,
+            "can-read-variable": true,
+            "can-update-variable": true,
+            "can-lock": true,
+            "can-unlock": true,
+            "can-force-unlock": true,
+            "can-read-settings": true
+          },
+          "actions": {
+            "is-destroyable": true
+          },
+          "description": null,
+          "file-triggers-enabled": true,
+          "trigger-prefixes": [
+            "terraform"
+          ],
+          "source": "tfe-api",
+          "source-name": null,
+          "source-url": null
+        },
+        "relationships": {
+          "organization": {
+            "data": {
+              "id": "my-organization",
+              "type": "organizations"
+            }
+          },
+          "current-run": {
+            "data": {
+              "id": "run-1234567890abcdef",
+              "type": "runs"
             },
             "links": {
-                "self": "/api/v2/organizations/my-organization/workspaces/workspace-1"
+              "related": "/api/v2/runs/run-1234567890abcdef"
             }
+          },
+          "latest-run": {
+            "data": {
+              "id": "run-1234567890abcdef",
+              "type": "runs"
+            },
+            "links": {
+              "related": "/api/v2/runs/run-1234567890abcdef"
+            }
+          },
+          "outputs": {
+            "data": []
+          },
+          "current-state-version": {
+            "data": {
+              "id": "sv-1234567890abcdef",
+              "type": "state-versions"
+            },
+            "links": {
+              "related": "/api/v2/workspaces/ws-1234567890abcdef/current-state-version"
+            }
+          },
+          "current-configuration-version": {
+            "data": {
+              "id": "cv-1234567890abcdef",
+              "type": "configuration-versions"
+            },
+            "links": {
+              "related": "/api/v2/configuration-versions/cv-1234567890abcdef"
+            }
+          },
+          "agent-pool": {
+            "data": null
+          },
+          "readme": {
+            "data": {
+              "id": "12345",
+              "type": "workspace-readme"
+            }
+          }
+        },
+        "links": {
+          "self": "/api/v2/organizations/my-organization/workspaces/my-workspace"
         }
+      }
     ]
 }
