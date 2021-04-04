@@ -50,11 +50,11 @@ namespace Tfe.NetClient.Runs
         }
 
         /// <summary>
-        /// ShowAsync
+        /// GetAsync
         /// </summary>
         /// <param name="runId"></param>
         /// <returns></returns>
-        public async Task<RunResponse> ShowAsync(string runId)
+        public async Task<RunResponse> GetAsync(string runId)
         {
             return await GetAsync<RunResponse>($"runs/{runId}").ConfigureAwait(false);
         }
