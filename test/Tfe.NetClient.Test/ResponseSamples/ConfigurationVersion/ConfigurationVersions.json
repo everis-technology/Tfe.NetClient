@@ -1,0 +1,32 @@
+{
+  "data": {
+    "id": "cv-1234567890abcdef",
+    "type": "configuration-versions",
+    "attributes": {
+      "auto-queue-runs": true,
+      "error": null,
+      "error-message": null,
+      "source": "github",
+      "status": "uploaded",
+      "status-timestamps": {},
+      "changed-files": [
+        "file1.tf",
+        "file2.tf"
+      ]
+    },
+    "relationships": {
+      "ingress-attributes": {
+        "data": {
+          "id": "ia-1234567890abcdef",
+          "type": "ingress-attributes"
+        },
+        "links": {
+          "related": "/api/v2/configuration-versions/cv-1234567890abcdef/ingress-attributes"
+        }
+      }
+    },
+    "links": {
+      "self": "/api/v2/configuration-versions/cv-1234567890abcdef"
+    }
+  }
+}

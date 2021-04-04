@@ -22,7 +22,8 @@ namespace Tfe.NetClient
         /// <returns></returns>
         private JsonSerializerOptions serializerJsonOptions = new JsonSerializerOptions()
         {
-            IgnoreNullValues = true
+            IgnoreNullValues = true,
+            PropertyNamingPolicy = new JsonKebabCaseNamingPolicy()
         };
 
         /// <summary>
