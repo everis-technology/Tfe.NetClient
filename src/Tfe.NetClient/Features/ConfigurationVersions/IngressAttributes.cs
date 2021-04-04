@@ -11,13 +11,13 @@ namespace Tfe.NetClient.Features.ConfigurationVersions
     public class IngressAttributes
     {
         public string Id { get; set; }
-        
+
         public string Type { get; set; }
-        
+
         public Attributes Attributes { get; set; }
-        
+
         public IngressAttributesRelationships Relationships { get; set; }
-        
+
         public Links Links { get; set; }
     }
 
@@ -30,11 +30,11 @@ namespace Tfe.NetClient.Features.ConfigurationVersions
         public string CommitMessage { get; set; }
 
         public string CommitSha { get; set; }
-        
+
         public string CommitUrl { get; set; }
-        
+
         public string CompareUrl { get; set; }
-        
+
         public string Identifier { get; set; }
 
         public bool IsPullRequest { get; set; }
