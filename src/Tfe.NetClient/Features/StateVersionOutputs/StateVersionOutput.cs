@@ -19,11 +19,11 @@ namespace Tfe.NetClient.StateVersionOutputs
         }
 
         /// <summary>
-        /// ShowAsync
+        /// GetAsync
         /// </summary>
         /// <param name="stateVersionOutputId"></param>
         /// <returns></returns>
-        public async Task<StateVersionOutputResponse> ShowAsync(string stateVersionOutputId)
+        public async Task<StateVersionOutputResponse> GetAsync(string stateVersionOutputId)
         {
             return await GetAsync<StateVersionOutputResponse>($"state-version-outputs/{stateVersionOutputId}").ConfigureAwait(false);
         }

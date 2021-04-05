@@ -27,11 +27,11 @@ namespace Tfe.NetClient.Organizations
         }
 
         /// <summary>
-        /// ShowAsync
+        /// GetAsync
         /// </summary>
         /// <param name="organizationName"></param>
         /// <returns></returns>
-        public async Task<OrganizationResponse> ShowAsync(string organizationName)
+        public async Task<OrganizationResponse> GetAsync(string organizationName)
         {
             return await GetAsync<OrganizationResponse>($"organizations/{organizationName}").ConfigureAwait(false);
         }

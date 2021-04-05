@@ -57,11 +57,11 @@
         }
 
         /// <summary>
-        /// AssignListAndShowTeamAccessToWorkspace
+        /// AssignListAndGetTeamAccessToWorkspace
         /// </summary>
         /// <returns></returns>
         [Fact]
-        public async Task AssignListAndShowTeamAccessToWorkspace()
+        public async Task AssignListAndGetTeamAccessToWorkspace()
         {
             var teamId = configuration["teamId"];
 
@@ -84,7 +84,7 @@
             Assert.Equal(workspace.Data.Id, listResult.Data[0].Relationships.Workspace.RelationshipData.Id);
             Assert.Equal(teamId, listResult.Data[0].Relationships.Team.RelationshipData.Id);
 
-            var showResult = await client.TeamWorkspace.ShowAsync(result.Data.Id);
+            var showResult = await client.TeamWorkspace.GetAsync(result.Data.Id);
             Assert.NotNull(showResult);
             Assert.Equal(workspace.Data.Id, showResult.Data.Relationships.Workspace.RelationshipData.Id);
             Assert.Equal(teamId, showResult.Data.Relationships.Team.RelationshipData.Id);

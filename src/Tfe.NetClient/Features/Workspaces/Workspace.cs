@@ -32,22 +32,22 @@ namespace Tfe.NetClient.Workspaces
         }
 
         /// <summary>
-        /// ShowAsync
+        /// GetAsync
         /// </summary>
         /// <param name="workspaceId"></param>
         /// <returns></returns>
-        public async Task<WorkspaceResponse> ShowAsync(string workspaceId)
+        public async Task<WorkspaceResponse> GetAsync(string workspaceId)
         {
             return await GetAsync<WorkspaceResponse>($"workspaces/{workspaceId}").ConfigureAwait(false);
         }
 
         /// <summary>
-        /// ShowAsync
+        /// GetAsync
         /// </summary>
         /// <param name="organizationName"></param>
         /// <param name="workspaceName"></param>
         /// <returns></returns>
-        public async Task<WorkspaceResponse> ShowAsync(string organizationName, string workspaceName)
+        public async Task<WorkspaceResponse> GetAsync(string organizationName, string workspaceName)
         {
             return await GetAsync<WorkspaceResponse>($"organizations/{organizationName}/workspaces/{workspaceName}").ConfigureAwait(false);
         }

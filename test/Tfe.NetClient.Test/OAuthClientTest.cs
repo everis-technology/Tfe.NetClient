@@ -108,11 +108,11 @@ namespace Tfe.NetClient
         }
 
         /// <summary>
-        /// Show_OAuthClient
+        /// Get_OAuthClient
         /// </summary>
         /// <returns></returns>
         [Fact]
-        public async Task Show_OAuthClient()
+        public async Task Get_OAuthClient()
         {
             var oauthClientId = "oc-XKFwG6ggfA9n7t1K";
 
@@ -120,7 +120,7 @@ namespace Tfe.NetClient
             {
                 Handler = (entry) =>
                    {
-                       TestHttpClient.SendResponse("OAuthClient/ShowOAuthClient", entry);
+                       TestHttpClient.SendResponse("OAuthClient/GetOAuthClient", entry);
                    }
             };
 
@@ -128,7 +128,7 @@ namespace Tfe.NetClient
 
             var client = new TfeClient(config);
 
-            var result = await client.OAuthClient.ShowAsync(oauthClientId);
+            var result = await client.OAuthClient.GetAsync(oauthClientId);
             Assert.NotNull(result);
             Assert.Equal(oauthClientId, result.Data.Id);
         }

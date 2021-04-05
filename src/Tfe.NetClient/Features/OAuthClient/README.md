@@ -7,7 +7,7 @@
 | Implemented  | Method           |
 |------------- |------------------|
 | [x]          | List             |
-| [x]          | Show             |
+| [x]          | Get             |
 | [x]          | Create           |
 | [ ]          | Update           |
 | [x]          | Destroy          |

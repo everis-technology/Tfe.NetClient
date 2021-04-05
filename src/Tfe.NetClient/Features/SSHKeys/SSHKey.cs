@@ -40,11 +40,11 @@ namespace Tfe.NetClient.SshKeys
         }
 
         /// <summary>
-        /// ShowAsync
+        /// GetAsync
         /// </summary>
         /// <param name="shhKeyId"></param>
         /// <returns></returns>
-        public async Task<SshKeyResponse> ShowAsync(string shhKeyId)
+        public async Task<SshKeyResponse> GetAsync(string shhKeyId)
         {
             return await GetAsync<SshKeyResponse>($"ssh-keys/{shhKeyId}").ConfigureAwait(false);
         }

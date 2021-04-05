@@ -25,12 +25,12 @@
         }
 
         /// <summary>
-        /// ShowAsync
+        /// GetAsync
         /// </summary>
         /// <param name="organizationName"></param>
         /// <param name="teamWorkspaceId"></param>
         /// <returns></returns>
-        public async Task<TeamWorkspaceResponse> ShowAsync(string teamWorkspaceId)
+        public async Task<TeamWorkspaceResponse> GetAsync(string teamWorkspaceId)
         {
             return await GetAsync<TeamWorkspaceResponse>($"team-workspaces/{teamWorkspaceId}").ConfigureAwait(false);
         }

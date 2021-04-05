@@ -103,11 +103,11 @@ namespace Tfe.NetClient
         }
 
         /// <summary>
-        /// ShowWorkspaceByName
+        /// GetWorkspaceByName
         /// </summary>
         /// <returns></returns>
         [Fact]
-        public async Task ShowWorkspaceByName()
+        public async Task GetWorkspaceByName()
         {
             var organizationName = configuration["organizationName"];
 
@@ -124,17 +124,17 @@ namespace Tfe.NetClient
             Assert.NotNull(createResult);
             Assert.Equal(workspaceName, createResult.Data.Attributes.Name);
 
-            var showResult = await client.Workspace.ShowAsync(organizationName, workspaceName);
+            var showResult = await client.Workspace.GetAsync(organizationName, workspaceName);
             Assert.NotNull(showResult);
             Assert.Equal(workspaceName, showResult.Data.Attributes.Name);
         }
 
         /// <summary>
-        /// ShowWorkspaceById
+        /// GetWorkspaceById
         /// </summary>
         /// <returns></returns>
         [Fact]
-        public async Task ShowWorkspaceById()
+        public async Task GetWorkspaceById()
         {
             var organizationName = configuration["organizationName"];
 
@@ -151,7 +151,7 @@ namespace Tfe.NetClient
             Assert.NotNull(createResult);
             Assert.Equal(workspaceName, createResult.Data.Attributes.Name);
 
-            var showResult = await client.Workspace.ShowAsync(createResult.Data.Id);
+            var showResult = await client.Workspace.GetAsync(createResult.Data.Id);
             Assert.NotNull(showResult);
             Assert.Equal(workspaceName, showResult.Data.Attributes.Name);
             Assert.Equal(createResult.Data.Id, showResult.Data.Id);
