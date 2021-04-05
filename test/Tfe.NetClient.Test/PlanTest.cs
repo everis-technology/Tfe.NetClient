@@ -2,17 +2,17 @@ namespace Tfe.NetClient.Test
 {
     using System;
     using Xunit;
-    using Tfe.NetClient.Plans;
+    using Plans;
     using System.Threading.Tasks;
 
     public class PlanTest
     {
         [Fact]
-        public async Task ShowIngressAttributesTest()
+        public async Task GetPlanAsyncTest()
         {
             var planId = "plan-1234567890abcdef";
 
-            PlansResponse result = await TestHelper.GetTestClient("Plan/ShowPlan").Plan.ShowPlanAsync(planId);
+            PlansResponse result = await TestHelper.GetTestClient("Plan/GetPlan").Plan.GetPlanAsync(planId);
 
             Assert.NotNull(result);
             Assert.Equal(planId, result.Data.Id);

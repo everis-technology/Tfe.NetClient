@@ -10,11 +10,11 @@ namespace Tfe.NetClient.Plans
 		}
 
 		/// <summary>
-		/// ShowPlanAsync
+		/// GetPlanAsync
 		/// </summary>
 		/// <param name="planId"></param>
 		/// <returns></returns>
-		public async Task<PlansResponse> ShowPlanAsync(string planId)
+		public async Task<PlansResponse> GetPlanAsync(string planId)
 		{
 			return await GetAsync<PlansResponse>($"plans/{planId}").ConfigureAwait(false);
 		}
