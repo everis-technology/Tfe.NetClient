@@ -8,7 +8,7 @@ namespace Tfe.NetClient.WorkspaceVariables
     /// </summary>
     public class WorkspaceVariable : BaseClient
     {
-        
+
         /// <summary>
         /// WorkspaceVariable
         /// </summary>

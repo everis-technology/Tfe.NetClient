@@ -34,7 +34,7 @@ namespace Tfe.NetClient
         {
             this.client = client;
         }
-        
+
         /// <summary>
         /// GetAsync
         /// </summary>

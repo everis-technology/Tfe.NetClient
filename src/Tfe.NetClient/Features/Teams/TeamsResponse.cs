@@ -1,7 +1,7 @@
 namespace Tfe.NetClient.Teams
 {
     using System.Text.Json.Serialization;
-    
+
     /// <summary>
     /// Relationships
     /// </summary>
@@ -194,7 +194,7 @@ namespace Tfe.NetClient.Teams
     /// Permissions
     /// </summary>
     public class Permissions
-    {   
+    {
         /// <summary>
         /// CanUpdateMembership
         /// </summary>
@@ -235,7 +235,7 @@ namespace Tfe.NetClient.Teams
     /// Links
     /// </summary>
     public class Links
-    {   
+    {
         /// <summary>
         /// Self
         /// </summary>

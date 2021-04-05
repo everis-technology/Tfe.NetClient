@@ -6,7 +6,7 @@ namespace Tfe.NetClient.WorkspaceVariables
     /// WorkspaceVariablesResponse
     /// </summary>
     public class WorkspaceVariablesResponse
-    {   
+    {
         /// <summary>
         /// Data
         /// </summary>
@@ -53,7 +53,7 @@ namespace Tfe.NetClient.WorkspaceVariables
         /// <value></value>
         [JsonPropertyName("attributes")]
         public ResponseAttributes Attributes { get; set; }
-        
+
         /// <summary>
         /// Relationships
         /// </summary>
@@ -121,20 +121,20 @@ namespace Tfe.NetClient.WorkspaceVariables
     /// DatumLinks
     /// </summary>
     public class DatumLinks
-    {   
+    {
         /// <summary>
         /// Self
         /// </summary>
         /// <value></value>
         [JsonPropertyName("self")]
         public string Self { get; set; }
-    }  
+    }
 
     /// <summary>
     /// Relationships
     /// </summary>
     public class Relationships
-    {   
+    {
         /// <summary>
         /// Configurable
         /// </summary>
@@ -147,7 +147,7 @@ namespace Tfe.NetClient.WorkspaceVariables
     /// Configurable
     /// </summary>
     public class Configurable
-    {   
+    {
         /// <summary>
         /// Data
         /// </summary>
@@ -167,7 +167,7 @@ namespace Tfe.NetClient.WorkspaceVariables
     /// ResponseData
     /// </summary>
     public class ResponseData
-    {   
+    {
         /// <summary>
         /// Id
         /// </summary>
@@ -182,12 +182,12 @@ namespace Tfe.NetClient.WorkspaceVariables
         [JsonPropertyName("type")]
         public string Type { get; set; }
     }
-    
+
     /// <summary>
     /// ConfigurableLinks
     /// </summary>
     public class ConfigurableLinks
-    {   
+    {
         /// <summary>
         /// Related
         /// </summary>

@@ -19,7 +19,7 @@ namespace Tfe.NetClient.Workspaces
     /// AssignSsshKeyData
     /// </summary>
     public partial class AssignSsshKeyData
-    {   
+    {
         /// <summary>
         /// Attributes
         /// </summary>

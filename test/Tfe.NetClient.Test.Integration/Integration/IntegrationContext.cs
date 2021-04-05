@@ -10,7 +10,7 @@ namespace Tfe.NetClient
         /// </summary>
         /// <value></value>
         public static string OAuthTokenId { get; set; }
-        
+
         /// <summary>
         /// WorkspaceId
         /// </summary>

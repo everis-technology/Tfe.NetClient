@@ -79,7 +79,7 @@ namespace Tfe.NetClient.Runs
         /// <returns></returns>
         [JsonPropertyName("workspace")]
         public ConfigurationData Workspace { get; } = new ConfigurationData();
-        
+
         /// <summary>
         /// ConfigurationVersion
         /// </summary>

@@ -69,7 +69,7 @@ namespace Tfe.NetClient
             while (!ready)
             {
                 await Task.Delay(5000);
-                var run = await client.Run.ShowAsync(runId);
+                var run = await client.Run.GetAsync(runId);
                 ready = run.Data.Attributes.Status == "planned";
             }
 

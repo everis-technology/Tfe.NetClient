@@ -34,7 +34,7 @@ namespace Tfe.NetClient.StateVersions
         /// <value></value>
         [JsonPropertyName("attributes")]
         public Attributes Attributes { get; set; }
-        
+
         /// <summary>
         /// Relationships
         /// </summary>
