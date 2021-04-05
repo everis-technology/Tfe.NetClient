@@ -43,20 +43,20 @@ namespace Tfe.NetClient
             StateVersion = new StateVersion(client);
             StateVersionOutput = new StateVersionOutput(client);
             TeamWorkspace = new TeamWorkspace(client);
-		    }
+        }
 
-		    /// <summary>
-		    /// Plan
-		    /// </summary>
-		    /// <value></value>
-		    public Plan Plan { get; }
+        /// <summary>
+        /// Plan
+        /// </summary>
+        /// <value></value>
+        public Plan Plan { get; }
 
 
-		    /// <summary>
-		    /// Applies
-		    /// </summary>
-		    /// <value></value>
-		    public Apply Apply { get; }
+        /// <summary>
+        /// Applies
+        /// </summary>
+        /// <value></value>
+        public Apply Apply { get; }
 
         /// <summary>
         /// Applies
