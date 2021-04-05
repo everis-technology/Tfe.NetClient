@@ -43,6 +43,8 @@ namespace Tfe.NetClient
             StateVersion = new StateVersion(client);
             StateVersionOutput = new StateVersionOutput(client);
             TeamWorkspace = new TeamWorkspace(client);
+            Plan = new Plan(client);
+            ConfigurationVersion = new ConfigurationVersion(client);
         }
 
         /// <summary>
