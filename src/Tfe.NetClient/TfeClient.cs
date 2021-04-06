@@ -5,6 +5,7 @@ namespace Tfe.NetClient
     using System.Net.Http;
     using Tfe.NetClient.OAuthClients;
     using Tfe.NetClient.Organizations;
+    using Tfe.NetClient.Plans;
     using Tfe.NetClient.Runs;
     using Tfe.NetClient.SshKeys;
     using Tfe.NetClient.Workspaces;
@@ -42,8 +43,15 @@ namespace Tfe.NetClient
             StateVersion = new StateVersion(client);
             StateVersionOutput = new StateVersionOutput(client);
             TeamWorkspace = new TeamWorkspace(client);
+            Plan = new Plan(client);
             ConfigurationVersion = new ConfigurationVersion(client);
         }
+
+        /// <summary>
+        /// Plan
+        /// </summary>
+        /// <value></value>
+        public Plan Plan { get; }
 
 
         /// <summary>
