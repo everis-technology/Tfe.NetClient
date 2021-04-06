@@ -15,21 +15,21 @@ namespace Tfe.NetClient.Features.ConfigurationVersions
         }
 
         /// <summary>
-        /// ShowConfigurationVersionsAsync
+        /// GetConfigurationVersionsAsync
         /// </summary>
         /// <param name="configurationVersionId"></param>
         /// <returns></returns>
-        public async Task<ConfigurationVersionsResponse> ShowConfigurationVersionsAsync(string configurationVersionId)
+        public async Task<ConfigurationVersionsResponse> GetConfigurationVersionsAsync(string configurationVersionId)
         {
             return await GetAsync<ConfigurationVersionsResponse>($"configuration-versions/{configurationVersionId}").ConfigureAwait(false);
         }
 
         /// <summary>
-        /// ShowIngressAttributesAsync
+        /// GetIngressAttributesAsync
         /// </summary>
         /// <param name="configurationVersionId"></param>
         /// <returns></returns>
-        public async Task<IngressAttributesResponse> ShowIngressAttributesAsync(string configurationVersionId)
+        public async Task<IngressAttributesResponse> GetIngressAttributesAsync(string configurationVersionId)
         {
             return await GetAsync<IngressAttributesResponse>($"configuration-versions/{configurationVersionId}/ingress-attributes").ConfigureAwait(false);
         }

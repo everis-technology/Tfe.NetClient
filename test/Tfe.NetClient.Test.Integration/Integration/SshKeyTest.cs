@@ -55,11 +55,11 @@ namespace Tfe.NetClient
         }
 
         /// <summary>
-        /// ShowSshKey
+        /// GetSshKey
         /// </summary>
         /// <returns></returns>
         [Fact]
-        public async Task ShowSshKey()
+        public async Task GetSshKey()
         {
             var organizationName = configuration["organizationName"];
 
@@ -77,7 +77,7 @@ namespace Tfe.NetClient
             Assert.NotNull(result);
             Assert.Equal(keyName, result.Data.Attributes.Name);
 
-            var showResult = await client.SshKey.ShowAsync(result.Data.Id);
+            var showResult = await client.SshKey.GetAsync(result.Data.Id);
             Assert.NotNull(showResult);
             Assert.Equal(result.Data.Id, showResult.Data.Id);
         }

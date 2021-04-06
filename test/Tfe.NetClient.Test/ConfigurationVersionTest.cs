@@ -11,15 +11,15 @@ namespace Tfe.NetClient
     public class ConfigurationVersionTest
     {
         /// <summary>
-        /// ShowConfigurationVersionTest
+        /// GetConfigurationVersionTest
         /// </summary>
         /// <returns></returns>
         [Fact]
-        public async Task ShowConfigurationVersionTest()
+        public async Task GetConfigurationVersionTest()
         {
             var configurationVersionId = "cv-1234567890abcdef";
             
-            ConfigurationVersionsResponse result = await GetTestClient("ConfigurationVersion/ConfigurationVersions").ConfigurationVersion.ShowConfigurationVersionsAsync(configurationVersionId);
+            ConfigurationVersionsResponse result = await GetTestClient("ConfigurationVersion/ConfigurationVersions").ConfigurationVersion.GetConfigurationVersionsAsync(configurationVersionId);
 
             Assert.NotNull(result);
             Assert.Equal(configurationVersionId, result.Data.Id);
@@ -29,15 +29,15 @@ namespace Tfe.NetClient
         }
 
         /// <summary>
-        /// ShowConfigurationVersionTest
+        /// GetConfigurationVersionTest
         /// </summary>
         /// <returns></returns>
         [Fact]
-        public async Task ShowIngressAttributesTest()
+        public async Task GetIngressAttributesTest()
         {
             var configurationVersionId = "ia-1234567890abcdef";
 
-            IngressAttributesResponse result = await GetTestClient("ConfigurationVersion/IngressAttributes").ConfigurationVersion.ShowIngressAttributesAsync(configurationVersionId);
+            IngressAttributesResponse result = await GetTestClient("ConfigurationVersion/IngressAttributes").ConfigurationVersion.GetIngressAttributesAsync(configurationVersionId);
 
             Assert.NotNull(result);
             Assert.Equal(configurationVersionId, result.Data.Id);

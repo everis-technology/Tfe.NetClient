@@ -161,11 +161,11 @@ namespace Tfe.NetClient
         }
 
         /// <summary>
-        /// Show_Workspace
+        /// Get_Workspace
         /// </summary>
         /// <returns></returns>
         [Fact]
-        public async Task Show_Workspace()
+        public async Task Get_Workspace()
         {
             var workspaceId = "ws-mD5bmJ8ry3uTzuHi";
 
@@ -173,7 +173,7 @@ namespace Tfe.NetClient
             {
                 Handler = (entry) =>
                    {
-                       TestHttpClient.SendResponse("Workspace/ShowWorkspace", entry);
+                       TestHttpClient.SendResponse("Workspace/GetWorkspace", entry);
                    }
             };
 
@@ -181,7 +181,7 @@ namespace Tfe.NetClient
 
             var client = new TfeClient(config);
 
-            var result = await client.Workspace.ShowAsync(workspaceId);
+            var result = await client.Workspace.GetAsync(workspaceId);
             Assert.NotNull(result);
             Assert.Equal(workspaceId, result.Data.Id);
         }

@@ -28,11 +28,11 @@ namespace Tfe.NetClient.Teams
         }
 
         /// <summary>
-        /// ShowAsync
+        /// GetAsync
         /// </summary>
         /// <param name="teamId"></param>
         /// <returns></returns>
-        public async Task<TeamResponse> ShowAsync(string teamId)
+        public async Task<TeamResponse> GetAsync(string teamId)
         {
             return await GetAsync<TeamResponse>($"teams/{teamId}").ConfigureAwait(false);
         }

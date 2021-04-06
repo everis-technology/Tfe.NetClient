@@ -19,11 +19,11 @@ namespace Tfe.NetClient.StateVersions
         }
 
         /// <summary>
-        /// ShowAsync
+        /// GetAsync
         /// </summary>
         /// <param name="stateVersionId"></param>
         /// <returns></returns>
-        public async Task<StateVersionResponse> ShowAsync(string stateVersionId)
+        public async Task<StateVersionResponse> GetAsync(string stateVersionId)
         {
             return await GetAsync<StateVersionResponse>($"state-versions/{stateVersionId}").ConfigureAwait(false);
         }
@@ -40,11 +40,11 @@ namespace Tfe.NetClient.StateVersions
         }
 
         /// <summary>
-        /// ShowCurrentAsync
+        /// GetCurrentAsync
         /// </summary>
         /// <param name="workspaceId"></param>
         /// <returns></returns>
-        public async Task<StateVersionResponse> ShowCurrentAsync(string workspaceId)
+        public async Task<StateVersionResponse> GetCurrentAsync(string workspaceId)
         {
             return await GetAsync<StateVersionResponse>($"workspaces/{workspaceId}/current-state-version").ConfigureAwait(false);
         }

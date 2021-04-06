@@ -29,11 +29,11 @@ namespace Tfe.NetClient.OAuthClients
         }
 
         /// <summary>
-        /// ShowAsync
+        /// GetAsync
         /// </summary>
         /// <param name="oauthClientId"></param>
         /// <returns></returns>
-        public async Task<OAuthClientResponse> ShowAsync(string oauthClientId)
+        public async Task<OAuthClientResponse> GetAsync(string oauthClientId)
         {
             return await GetAsync<OAuthClientResponse>($"oauth-clients/{oauthClientId}").ConfigureAwait(false);
         }

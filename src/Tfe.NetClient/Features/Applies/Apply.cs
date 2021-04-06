@@ -19,11 +19,11 @@ namespace Tfe.NetClient.Applies
         }
 
         /// <summary>
-        /// ShowAsync
+        /// GetAsync
         /// </summary>
         /// <param name="applyId"></param>
         /// <returns></returns>
-        public async Task<ApplyResponse> ShowAsync(string applyId)
+        public async Task<ApplyResponse> GetAsync(string applyId)
         {
             return await GetAsync<ApplyResponse>($"applies/{applyId}").ConfigureAwait(false);
         }
