@@ -9,7 +9,7 @@
 | [x]          | Create           |
 | [x]          | Update           |
 | [x]          | List             |
-| [x]          | Get             |
+| [x]          | Get              |
 | [x]          | Delete           |
 | [ ]          | Lock             |
 | [ ]          | Unlock           |

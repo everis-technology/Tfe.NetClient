@@ -8,8 +8,20 @@ Tfe.NetClient is a .NET Client for Terraform Enterprise.
 
 > Terraform Cloud API Documentation can be found [here](https://www.terraform.io/docs/cloud/api/index.html).
 
+
+* [Applies](src/Tfe.NetClient/Features/Applies/README.md)
+* [ConfigurationVersions](src/Tfe.NetClient/Features/ConfigurationVersions/README.md)
+* [OAuthClient](src/Tfe.NetClient/Features/OAuthClient/README.md)
+* [Organization](src/Tfe.NetClient/Features/Organization/README.md)
+* [Plans](src/Tfe.NetClient/Features/Plans/README.md)
+* [Runs](src/Tfe.NetClient/Features/Runs/README.md)
+* [SSHKeys](src/Tfe.NetClient/Features/SSHKeys/README.md)
+* [StateVersionOutputs](src/Tfe.NetClient/Features/StateVersionOutputs/README.md)
+* [StateVersions](src/Tfe.NetClient/Features/StateVersions/README.md)
+* [Teams](src/Tfe.NetClient/Features/Teams/README.md)
+* [TeamWorkspaces](src/Tfe.NetClient/Features/TeamWorkspaces/README.md)
 * [Workspaces](src/Tfe.NetClient/Features/Workspaces/README.md)
-* [OAutClient](src/Tfe.NetClient/Features/OAutClient/README.md)
+* [WorkspaceVariables](src/Tfe.NetClient/Features/WorkspaceVariables/README.md)
 
 ## Basic usage
 
