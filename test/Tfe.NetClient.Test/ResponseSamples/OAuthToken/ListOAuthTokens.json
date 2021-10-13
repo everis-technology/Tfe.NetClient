@@ -1,0 +1,27 @@
+{
+    "data": [
+      {
+        "id": "ot-hmAyP66qk2AMVdbJ",
+        "type": "oauth-tokens",
+        "attributes": {
+          "created-at":"2017-11-02T06:37:49.284Z",
+          "service-provider-user":"skierkowski",
+          "has-ssh-key": false
+        },
+        "relationships": {
+          "oauth-client": {
+            "data": {
+              "id": "oc-GhHqb5rkeK19mLB8",
+              "type": "oauth-clients"
+            },
+            "links": {
+              "related": "/api/v2/oauth-clients/oc-GhHqb5rkeK19mLB8"
+            }
+          }
+        },
+        "links": {
+          "self": "/api/v2/oauth-tokens/ot-hmAyP66qk2AMVdbJ"
+        }
+      }
+    ]
+}
