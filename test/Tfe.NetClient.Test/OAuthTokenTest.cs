@@ -22,7 +22,7 @@ namespace Tfe.NetClient
             {
                 Handler = (entry) =>
                    {
-                       TestHttpClient.SendResponse("OAuthToken/ListOAuthToken", entry);
+                       TestHttpClient.SendResponse("OAuthToken/ListOAuthTokens", entry);
                    }
             };
 
@@ -30,12 +30,12 @@ namespace Tfe.NetClient
 
             var client = new TfeClient(config);
 
-            var oauthclientid = "oc-GhHqb5rkeK19mLB8";
-            var result = await client.OAuthToken.ListAsync(oauthclientid);
+            var oauthClientId = "oc-GhHqb5rkeK19mLB8";
+            var result = await client.OAuthToken.ListAsync(oauthClientId);
             Assert.NotNull(result);
             Assert.Single(result.Data);
             Assert.Equal("ot-hmAyP66qk2AMVdbJ", result.Data[0].Id);
-            Assert.Equal(oauthclientid, result.Data[0].Relationships.OAuthClients.Data[0].Id);
+            Assert.Equal(oauthClientId, result.Data[0].Relationships.OAuthClients.Data[0].Id);
         }
 
         /// <summary>
@@ -56,9 +56,7 @@ namespace Tfe.NetClient
             };
 
             var config = new TfeConfig("faketoken", httpClient);
-
             var client = new TfeClient(config);
-
             var result = await client.OAuthToken.GetAsync(oauthTokenId);
             Assert.NotNull(result);
             Assert.Equal(oauthTokenId, result.Data.Id);
