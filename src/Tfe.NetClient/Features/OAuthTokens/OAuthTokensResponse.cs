@@ -11,26 +11,28 @@ namespace Tfe.NetClient.OAuthTokens
         /// <summary>
         /// Data
         /// </summary>
+        /// <value></value>
         [JsonPropertyName("data")]
-        public ResponseDatum[] Data { get; set; }
+        public ResponseData[] Data { get; set; }
     }
 
     /// <summary>
-    /// Data
+    /// OAuthTokenResponse
     /// </summary>
     public class OAuthTokenResponse
     {
         /// <summary>
         /// Data
         /// </summary>
+        /// <value></value>
         [JsonPropertyName("data")]
-        public ResponseDatum Data { get; set; }
+        public ResponseData Data { get; set; }
     }
 
     /// <summary>
-    /// ResponseDatum
+    /// ResponseData
     /// </summary>
-    public class ResponseDatum
+    public class ResponseData
     {
         /// <summary>
         /// Id
@@ -47,12 +49,14 @@ namespace Tfe.NetClient.OAuthTokens
         /// <summary>
         /// Attributes
         /// </summary>
+        /// <value></value>
         [JsonPropertyName("attributes")]
-        public ResponseAttributes Attributes { get; set; }
+        public Attributes Attributes { get; set; }
 
         /// <summary>
         /// Relationships
         /// </summary>
+        /// <value></value>
         [JsonPropertyName("relationships")]
         public Relationships Relationships { get; set; }
 
@@ -65,15 +69,15 @@ namespace Tfe.NetClient.OAuthTokens
     }
 
     /// <summary>
-    /// ResponseAttributes
+    /// Attributes
     /// </summary>
-    public class ResponseAttributes
+    public class Attributes
     {
         /// <summary>
         /// CreatedAt
         /// </summary>
         [JsonPropertyName("created-at")]
-        public DateTimeOffset CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; }
 
         /// <summary>
         /// ServiceProvider
@@ -82,10 +86,11 @@ namespace Tfe.NetClient.OAuthTokens
         public string ServiceProviderUser { get; set; }
 
         /// <summary>
-        /// ServiceProviderDisplayName
+        /// ServiceProvider
         /// </summary>
         [JsonPropertyName("has-ssh-key")]
-        public bool HasSSHKey { get; set; }
+        public bool HasSshKey { get; set; }
+        
     }
 
     /// <summary>
@@ -97,19 +102,19 @@ namespace Tfe.NetClient.OAuthTokens
         /// OAuthClients
         /// </summary>
         [JsonPropertyName("oauth-client")]
-        public OAuthClients OAuthClients { get; set; }
+        public ResponseOauthClient OAuthClient { get; set; }
     }
 
     /// <summary>
     /// OAuthClients
     /// </summary>
-    public class OAuthClients
+    public class ResponseOauthClient
     {
         /// <summary>
         /// Data
         /// </summary>
         [JsonPropertyName("data")]
-        public Data[] Data { get; set; }
+        public OauthClientData OauthClientData { get; set; }
 
         /// <summary>
         /// Links
@@ -118,6 +123,24 @@ namespace Tfe.NetClient.OAuthTokens
         public Links Links { get; set; }
     }
 
+    /// <summary>
+    /// Data
+    /// </summary>
+    public class OauthClientData
+    {
+        /// <summary>
+        /// Id
+        /// </summary>
+        [JsonPropertyName("id")]
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Type
+        /// </summary>
+        [JsonPropertyName("type")]
+        public string Type { get; set; }
+    }
+    
     /// <summary>
     /// Links
     /// </summary>
@@ -136,20 +159,4 @@ namespace Tfe.NetClient.OAuthTokens
         [JsonPropertyName("self")]
         public string Self { get; set; }
     }
-
-    public class Data
-    {
-        /// <summary>
-        /// Id
-        /// </summary>
-        [JsonPropertyName("id")]
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Type
-        /// </summary>
-        [JsonPropertyName("type")]
-        public string Type { get; set; }
-    }
-    
 }

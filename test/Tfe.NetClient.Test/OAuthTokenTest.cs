@@ -2,15 +2,13 @@ namespace Tfe.NetClient
 {
     using Xunit;
     using System.Threading.Tasks;
-    using System.Linq;
-    using Tfe.NetClient.OAuthTokens;
-    using System;
 
     /// <summary>
-    /// WorkspaceTest
+    /// OAuthTokenTest
     /// </summary>
     public class OAuthTokenTest
     {
+
         /// <summary>
         /// List_OAuthToken
         /// </summary>
@@ -30,12 +28,12 @@ namespace Tfe.NetClient
 
             var client = new TfeClient(config);
 
-            var oauthClientId = "oc-GhHqb5rkeK19mLB8";
-            var result = await client.OAuthToken.ListAsync(oauthClientId);
+            var oauthclientid = "oc-GhHqb5rkeK19mLB8";
+            var result = await client.OAuthToken.ListAsync(oauthclientid);
             Assert.NotNull(result);
             Assert.Single(result.Data);
             Assert.Equal("ot-hmAyP66qk2AMVdbJ", result.Data[0].Id);
-            Assert.Equal(oauthClientId, result.Data[0].Relationships.OAuthClients.Data[0].Id);
+            Assert.Equal(oauthclientid, result.Data[0].Relationships.OAuthClient.OauthClientData.Id);
         }
 
         /// <summary>
@@ -45,8 +43,6 @@ namespace Tfe.NetClient
         [Fact]
         public async Task Get_OAuthToken()
         {
-            var oauthTokenId = "ot-29t7xkUKiNC2XasL";
-
             var httpClient = new TestHttpClient()
             {
                 Handler = (entry) =>
@@ -54,12 +50,14 @@ namespace Tfe.NetClient
                        TestHttpClient.SendResponse("OAuthToken/GetOAuthToken", entry);
                    }
             };
-
+            
+            var oauthTokenId = "ot-29t7xkUKiNC2XasL";
             var config = new TfeConfig("faketoken", httpClient);
             var client = new TfeClient(config);
             var result = await client.OAuthToken.GetAsync(oauthTokenId);
             Assert.NotNull(result);
             Assert.Equal(oauthTokenId, result.Data.Id);
         }
+        
     }
 }

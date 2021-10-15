@@ -12,19 +12,14 @@ namespace Tfe.NetClient.OAuthTokens
         /// Data
         /// </summary>
         [JsonPropertyName("data")]
-        public RequestData Data { get; } = new RequestData();
+        public OAuthTokensRequestData Data { get; } = new OAuthTokensRequestData();
     }
 
     /// <summary>
     /// RequestData
     /// </summary>
-    public class RequestData
+    public class OAuthTokensRequestData
     {
-        /// <summary>
-        /// Id
-        /// </summary>
-        [JsonPropertyName("id")]
-        public string Id { get; set; }
         /// <summary>
         /// Type
         /// </summary>
@@ -44,9 +39,9 @@ namespace Tfe.NetClient.OAuthTokens
     public class RequestDataAttributes
     {
         /// <summary>
-        /// SSHKey
+        /// Sshkey
         /// </summary>
         [JsonPropertyName("ssh-key")]
-        public string SSHKey { get; set; }
+        public string Sshkey { get; set; }
     }
 }
