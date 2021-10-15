@@ -4,6 +4,7 @@ namespace Tfe.NetClient
 {
     using System.Net.Http;
     using Tfe.NetClient.OAuthClients;
+    using Tfe.NetClient.OAuthTokens;
     using Tfe.NetClient.Organizations;
     using Tfe.NetClient.Plans;
     using Tfe.NetClient.Runs;
@@ -40,6 +41,7 @@ namespace Tfe.NetClient
             Workspace = new Workspace(client);
             WorkspaceVariable = new WorkspaceVariable(client);
             OAuthClient = new OAuthClient(client);
+            OAuthToken = new OAuthToken(client);
             StateVersion = new StateVersion(client);
             StateVersionOutput = new StateVersionOutput(client);
             TeamWorkspace = new TeamWorkspace(client);
@@ -101,6 +103,12 @@ namespace Tfe.NetClient
         /// </summary>
         /// <value></value>
         public OAuthClient OAuthClient { get; }
+
+        /// <summary>
+        /// OAuthToken
+        /// </summary>
+        /// <value></value>
+        public OAuthToken OAuthToken { get; }
 
         /// <summary>
         /// State Version
