@@ -28,5 +28,25 @@ namespace Tfe.NetClient.WorkspaceVariables
         {
             return await PostAsync<WorkspaceVariablesRequest, WorkspaceVariableResponse>($"workspaces/{workspaceId}/vars", request).ConfigureAwait(false);
         }
+
+        /// <summary>
+        /// GetWorkspaceVariableAsync
+        /// </summary>
+        /// <param name="workspaceId"></param>
+        /// <returns></returns>
+        public async Task<WorkspaceVariablesResponse> GetWorkspaceVariableAsync(string workspaceId)
+        {
+            return await GetAsync<WorkspaceVariablesResponse>($"workspaces/{workspaceId}/vars").ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// UpdateWorkspaceVariable
+        /// </summary>
+        /// <param name="workspaceId"></param>
+        /// <returns></returns>
+        public async Task<WorkspaceVariablesResponse> UpdateWorkspaceVariable(string workspaceId, string variableId, WorkspaceVariablesRequest request)
+        {
+            return await PatchAsync<WorkspaceVariablesRequest, WorkspaceVariablesResponse>($"workspaces/{workspaceId}/vars/{variableId}", request).ConfigureAwait(false);
+        }
     }
 }

@@ -11,23 +11,26 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0.x
-        # Install minver-cli and set the currentVersion variable to the output of the minver command
+
+      # Install minver-cli and set the currentVersion variable to the output of the minver command
       - name: minver-cli
         run: |
           dotnet tool install --global minver-cli --version 5.0.0
           echo "MINVERVERSIONOVERRIDE=$(minver -t v -d rc)" >> $GITHUB_ENV
+
       - name: Install dependencies
         run: dotnet restore
+
       - name: Build
         run: dotnet build --configuration Release --no-restore
-      - name: Publish Tfe.NetClient
-        uses: brandedoutcast/publish-nuget@v2.5.5
-        with:
-          PROJECT_FILE_PATH: src/Tfe.NetClient/Tfe.NetClient.csproj
-          VERSION_STATIC: ${{ env.MINVERVERSIONOVERRIDE }}
-          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
-          NUGET_SOURCE: https://api.nuget.org
+
+      - name: Pack nugets
+        run: dotnet pack -c Release --no-build --output .
+
+      - name: Push to NuGet
+        run: dotnet nuget push "*.nupkg" --api-key ${{secrets.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json
