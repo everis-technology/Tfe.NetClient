@@ -64,6 +64,27 @@ namespace Tfe.NetClient.Workspaces
         }
 
         /// <summary>
+        /// LockAsync
+        /// </summary>
+        /// <param name="workspaceId"></param>
+        /// <returns></returns>
+        public async Task<HttpResponseMessage> LockAsync(string workspaceId)
+        {
+            return await PostAsync<string, HttpResponseMessage>($"workspaces/{workspaceId}/actions/lock", "").ConfigureAwait(false);
+        }
+
+
+        /// <summary>
+        /// UnlockAsync
+        /// </summary>
+        /// <param name="workspaceId"></param>
+        /// <returns></returns>
+        public async Task<HttpResponseMessage> UnlockAsync(string workspaceId)
+        {
+            return await PostAsync<string, HttpResponseMessage>($"workspaces/{workspaceId}/actions/unlock", "").ConfigureAwait(false);
+        }
+
+        /// <summary>
         /// UpdateAsync
         /// </summary>
         /// <param name="workspaceId"></param>

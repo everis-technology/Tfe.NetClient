@@ -27,6 +27,12 @@ namespace Tfe.NetClient.WorkspaceVariables
         public string Type => "vars";
 
         /// <summary>
+        /// Id
+        /// </summary>
+        [JsonPropertyName("Id")]
+        public string id { get; set; }
+
+        /// <summary>
         /// Attributes
         /// </summary>
         /// <returns></returns>
