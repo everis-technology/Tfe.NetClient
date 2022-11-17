@@ -36,7 +36,7 @@ namespace Tfe.NetClient.StateVersions
         /// <returns></returns>
         public async Task<StateVersionResponse> CreateAsync(string workspaceId, StateVersionRequest request)
         {
-            return await PostAsync<StateVersionRequest, StateVersionResponse>($"/workspaces/{workspaceId}/state-versions", request).ConfigureAwait(false);
+            return await PostAsync<StateVersionRequest, StateVersionResponse>($"workspaces/{workspaceId}/state-versions", request).ConfigureAwait(false);
         }
 
         /// <summary>

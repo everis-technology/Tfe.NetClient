@@ -3,13 +3,41 @@ using Tfe.NetClient.Workspaces;
 
 namespace Tfe.NetClient.Features.ConfigurationVersions
 {
+
+
+    public class ConfigurationVersionRequest
+    {
+
+        public ConfigurationVersionRequest()
+        {
+            this.Data = new ConfigurationVersions();
+        }
+
+        public ConfigurationVersions Data { get; set; }
+
+
+
+    }
+
+
     public class ConfigurationVersionsResponse
     {
+
         public ConfigurationVersions Data { get; set; }
     }
 
     public class ConfigurationVersions
     {
+
+        /// <summary>
+        /// RequestData
+        /// </summary>
+        public ConfigurationVersions()
+        {
+            this.Attributes = new ConfigurationVersionsAttributes();
+        }
+
+
         public string Id { get; set; }
 
         public string Type { get; set; }
@@ -32,6 +60,7 @@ namespace Tfe.NetClient.Features.ConfigurationVersions
         public string Source { get; set; }
 
         public string Status { get; set; }
+        public string UploadURL { get; set; }
 
         public StatusTimestamps StatusTimestamps { get; set; }
 
