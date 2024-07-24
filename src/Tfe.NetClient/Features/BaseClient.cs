@@ -4,6 +4,7 @@ namespace Tfe.NetClient
     using System.Net.Http.Headers;
     using System.Text;
     using System.Text.Json;
+    using System.Text.Json.Serialization;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -22,7 +23,7 @@ namespace Tfe.NetClient
         /// <returns></returns>
         private JsonSerializerOptions serializerJsonOptions = new JsonSerializerOptions()
         {
-            IgnoreNullValues = true,
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
             PropertyNamingPolicy = new JsonKebabCaseNamingPolicy()
         };
 
